@@ -29,7 +29,7 @@ in {
       # disabling vpn-only restrictions (to avoid leaks at the first seconds
       # after connection)
       iptables -A OUTPUT -m owner --uid-owner captive \
-               -p tcp -m multiport --dports 80,443 \
+               -p tcp -m multiport --dports 80,443,2443 \
                -j ACCEPT
 
       iptables -A OUTPUT -m owner --uid-owner captive \
