@@ -40,8 +40,13 @@
     enable = true;
     extraConfig = ''
       %wheel ALL=(ALL:ALL) NOPASSWD: ${pkgs.light}/bin/light
+      %wheel ALL=(captive) NOPASSWD: ${pkgs.firefox}/bin/firefox
     '';
   };
+
+  environment.systemPackages = with pkgs; [
+    (writeShellScriptBin "captive" "sudo -H -u captive ${pkgs.firefox}/bin/firefox")
+  ];
 
   security.wrappers = {
     pmount.source = "${pkgs.pmount}/bin/pmount";

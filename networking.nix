@@ -25,11 +25,29 @@ in {
       iptables -A OUTPUT -o virbr+ -j ACCEPT
       iptables -A OUTPUT -o virbr0-nic -j ACCEPT
 
+      # Allow access for special user for use captive portals without
+      # disabling vpn-only restrictions (to avoid leaks at the first seconds
+      # after connection)
+      iptables -A OUTPUT -m owner --uid-owner captive \
+               -p tcp -m multiport --dports 80,443 \
+               -j ACCEPT
+
+      iptables -A OUTPUT -m owner --uid-owner captive \
+               -p udp -m multiport --dports 53 \
+               -j ACCEPT
+
       # iptables -A OUTPUT -d 192.0.2.17 -j ACCEPT
       ${secrets.iptables}
     '';
     checkReversePath = false;
   };
+
+  # User without vpn-only restrictions (for captive portals)
+  users.users.captive = {
+    isNormalUser = true;
+  };
+
+  services.nscd.enable = false;
 
   services.openvpn.servers.vpn = {
     autoStart = true;
