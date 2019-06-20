@@ -29,6 +29,9 @@ in {
     '';
   };
 
+  services.tor.enable = true;
+  services.tor.client.enable = true;
+
   environment.systemPackages = with pkgs; [
     # nix
     patchelfUnstable nix-index
@@ -47,7 +50,8 @@ in {
     proot fakeroot fakechroot lm_sensors powertop
     exfat traceroute graphicsmagick-imagemagick-compat
     pdftk vnstat dunst ghostscript graphicsmagick
-    browsh
+    browsh texlive.combined.scheme-full rubber pandoc
+    jq
 
     # gpg-related
     gnupg unstable.yubikey-manager unstable.yubikey-personalization
@@ -70,7 +74,8 @@ in {
     # dev
     go gnumake gcc clang clang-analyzer global
     maven binutils-unwrapped openssl bison flex fop libxslt
-    cmake manpages unstable.gradle cargo rustc guile
+    cmake manpages unstable.gradle cargo rustc guile hydra
+    gitRepo
 
     # re
     radare2 radare2-cutter
@@ -78,19 +83,21 @@ in {
     # x render
     vdpauinfo
 
+    cm_unicode
+
     # base x
     rofi xlibs.xmodmap ubuntu_font_family i3lock unstable.kitty
     xfce.xfce4notifyd libnotify gtk_engines x2x lxappearance-gtk3
     pulsemixer arc-theme xorg.xhost xclip
     gnome3.dconf gnome3.dconf-editor gsettings-desktop-schemas gsettings-qt
-    xorg.xcursorthemes capitaine-cursors
+    xorg.xcursorthemes capitaine-cursors gnome3.cheese
 
     # x apps
-    unstable.chromium escrotum unstable.wire-desktop tdesktop ssvnc tightvnc
+    unstable.chromium escrotum unstable.wire-desktop unstable.tdesktop ssvnc tightvnc
     quaternion veracrypt evince krita gimp gnome3.gnome-maps
     android-file-transfer darktable xournal gnome3.eog audacious audacity
-    matrique libreoffice electrum adobe-reader unstable.wireshark lmms
-    unstable.firefox
+    matrique unstable.libreoffice electrum adobe-reader unstable.wireshark lmms
+    unstable.firefox unstable.brave
 
     (pkgs.writeShellScriptBin "virt-manager-unstable" "${unstable.virtmanager}/bin/virt-manager $@")
   ];
