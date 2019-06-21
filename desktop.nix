@@ -1,12 +1,20 @@
 { config, pkgs, ... }:
 
-{
+let
+  secrets = import ./secrets.nix;
+in {
   services.xserver.enable = true;
   services.xserver.layout = "us,ru";
   services.xserver.xkbOptions = "ctrl:nocaps,grp:rctrl_toggle";
   services.xserver.videoDrivers = [ "nvidia" ];
   services.xserver.windowManager.xmonad.enable = true;
   services.xserver.windowManager.xmonad.enableContribAndExtras = true;
+
+  services.redshift = {
+    enable = true;
+    latitude = secrets.latitude;
+    longitude = secrets.longitude;
+  };
 
   programs.dconf.enable = true;
   programs.light.enable = true;
