@@ -1,0 +1,12 @@
+{ config, pkgs, ... }:
+
+{
+  networking.wireless.networks = {
+    "SomeWifi".psk = "password";
+    "SomeHiddenWifi" = {
+      psk = "password";
+      hidden = true;
+    };
+    "SomeOpenWifi" = {};
+  };
+}
