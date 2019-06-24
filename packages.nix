@@ -51,7 +51,7 @@ in {
     exfat traceroute graphicsmagick-imagemagick-compat
     pdftk vnstat dunst ghostscript graphicsmagick
     browsh texlive.combined.scheme-full rubber pandoc
-    jq
+    jq socat
 
     # gpg-related
     gnupg unstable.yubikey-manager unstable.yubikey-personalization
@@ -75,7 +75,7 @@ in {
     go gnumake gcc clang clang-analyzer global
     maven binutils-unwrapped openssl bison flex fop libxslt
     cmake manpages unstable.gradle cargo rustc guile hydra
-    gitRepo
+    gitRepo rustfmt bazel ghc zlib gperf ccache
 
     # re
     radare2 radare2-cutter
@@ -97,7 +97,7 @@ in {
     quaternion veracrypt evince krita gimp gnome3.gnome-maps
     android-file-transfer darktable xournal gnome3.eog audacious audacity
     matrique unstable.libreoffice electrum adobe-reader unstable.wireshark lmms
-    unstable.firefox unstable.brave
+    unstable.firefox unstable.brave unstable.stellarium
 
     (pkgs.writeShellScriptBin "virt-manager-unstable" "${unstable.virtmanager}/bin/virt-manager $@")
   ];
