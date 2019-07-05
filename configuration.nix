@@ -15,6 +15,7 @@ in {
       ./desktop.nix
       ./security.nix
       ./hacks.nix
+      ./docker.nix
     ];
 
   time.timeZone = "UTC";

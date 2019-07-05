@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
-{
+let
+  fhs = pkgs.writeShellScriptBin "fhs"
+    "${pkgs.docker}/bin/docker run -v /home/user:/home/user -e \"HOST_PWD=$PWD\" -it fhs";
+in {
   security.allowUserNamespaces = true;
   security.allowSimultaneousMultithreading = true;
   security.lockKernelModules = false;
@@ -41,10 +44,12 @@
     extraConfig = ''
       %wheel ALL=(ALL:ALL) NOPASSWD: ${pkgs.light}/bin/light
       %wheel ALL=(captive) NOPASSWD: ${pkgs.firefox}/bin/firefox
+      %wheel ALL=(root) NOPASSWD: ${fhs}/bin/fhs
     '';
   };
 
   environment.systemPackages = with pkgs; [
+    (writeShellScriptBin "fhs" "sudo ${fhs}/bin/fhs")
     (writeShellScriptBin "captive" "sudo -H -u captive ${pkgs.firefox}/bin/firefox")
   ];
 
