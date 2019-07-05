@@ -37,9 +37,6 @@ in {
     patchelfUnstable nix-index
     appimage-run
 
-    # gpu
-    nvtop cudatoolkit_10
-
     # utils
     wget tmux zsh vim emacs htop acpi bc p7zip mpv
     git pass unzip zip w3m whois dnsutils feh
@@ -97,8 +94,8 @@ in {
     quaternion veracrypt evince krita gimp gnome3.gnome-maps
     android-file-transfer darktable xournal gnome3.eog audacious audacity
     matrique unstable.libreoffice electrum adobe-reader unstable.wireshark lmms
-    unstable.firefox unstable.brave unstable.stellarium
+    unstable.firefox unstable.stellarium
 
-    (pkgs.writeShellScriptBin "virt-manager-unstable" "${unstable.virtmanager}/bin/virt-manager $@")
+    (writeShellScriptBin "torbrowser" "${unstable.tor-browser-unwrapped}/bin/firefox")
   ];
 }
