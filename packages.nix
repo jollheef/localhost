@@ -62,17 +62,19 @@ in {
     spice-gtk
 
     # python
-    python2Full
-    python2Packages.obfsproxy
+    (python2.withPackages(ps: with ps; [
+      obfsproxy
+    ]))
 
-    python3Full 
-    python3Packages.ipython
+    (python3.withPackages(ps: with ps; [
+      ipython pillow opencv3 torchvision
+    ]))
 
     # dev
     go gnumake gcc clang clang-analyzer global
     maven binutils-unwrapped openssl bison flex fop libxslt
     cmake manpages unstable.gradle cargo rustc guile hydra
-    gitRepo rustfmt bazel ghc zlib gperf ccache
+    gitRepo rustfmt bazel ghc zlib gperf ccache opencv
 
     # re
     radare2 radare2-cutter

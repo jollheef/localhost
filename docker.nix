@@ -18,6 +18,7 @@
           RUN apt update && apt upgrade -y
           RUN apt install -y git libssl-dev bison flex bc build-essential
           RUN apt install -y libelf-dev python python3 zsh repo
+          RUN apt install -y python3-pip python3-opencv
 
           RUN groupmod users -g 100
           RUN useradd user -u 1000 -g 100 -s /bin/zsh
