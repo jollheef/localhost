@@ -11,14 +11,21 @@
           mkdir -p /var/docker-fhs && cd /var/docker-fhs
           cat > Dockerfile <<EOF
 
-          FROM ubuntu:devel
+          FROM ubuntu:disco
 
           ENV DEBIAN_FRONTEND noninteractive
 
-          RUN apt update && apt upgrade -y
+          RUN apt update && apt upgrade -y && apt install -y wget gnupg
+
+          RUN echo 'deb http://apt.llvm.org/disco/ llvm-toolchain-disco main' \
+                  >> /etc/apt/sources.list.d/llvm.list
+          RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key| apt-key add -
+          RUN apt update
+
           RUN apt install -y git libssl-dev bison flex bc build-essential
-          RUN apt install -y libelf-dev python python3 zsh repo
-          RUN apt install -y python3-pip python3-opencv
+          RUN apt install -y libelf-dev python python3 zsh repo python3-pip
+          RUN apt install -y python3-opencv meson ninja-build cmake clang-9
+          RUN apt install -y pkg-config binutils-dev libunwind-dev
 
           RUN groupmod users -g 100
           RUN useradd user -u 1000 -g 100 -s /bin/zsh
