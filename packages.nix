@@ -61,11 +61,6 @@ in {
     spice
     spice-gtk
 
-    # python
-    (python2.withPackages(ps: with ps; [
-      obfsproxy
-    ]))
-
     (python3.withPackages(ps: with ps; [
       ipython pillow opencv3 torchvision
     ]))
