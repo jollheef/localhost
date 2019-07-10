@@ -52,6 +52,10 @@ in {
   environment.systemPackages = with pkgs; [
     (writeShellScriptBin "fhs" "sudo ${fhs}/bin/fhs")
     (writeShellScriptBin "captive" "sudo -H -u captive ${pkgs.firefox}/bin/firefox")
+    (writeShellScriptBin "fhs-ptrace"
+      ("sudo ${pkgs.docker}/bin/docker run -v /home/user:/home/user " +
+       "--cap-add=SYS_PTRACE --security-opt seccomp=unconfined" +
+       " -e \"HOST_PWD=$PWD\" -it fhs"))
   ];
 
   security.wrappers = {
