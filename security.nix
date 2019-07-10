@@ -2,7 +2,8 @@
 
 let
   fhs = pkgs.writeShellScriptBin "fhs"
-    "${pkgs.docker}/bin/docker run -v /home/user:/home/user -e \"HOST_PWD=$PWD\" -it fhs";
+    ("${pkgs.docker}/bin/docker run -v /home/user:/home/user "+
+     "-e \"HOST_PWD=$PWD\" -it fhs");
 in {
   security.allowUserNamespaces = true;
   security.allowSimultaneousMultithreading = true;
