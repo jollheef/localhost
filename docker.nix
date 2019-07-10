@@ -22,9 +22,10 @@
           RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key| apt-key add -
           RUN apt update
 
-          RUN apt install -y git libssl-dev bison flex bc build-essential
+          RUN apt install -y git libssl-dev bison flex bc build-essential gdb
           RUN apt install -y libelf-dev python python3 zsh repo python3-pip
-          RUN apt install -y python3-opencv meson ninja-build cmake clang-9
+          RUN apt install -y python3-opencv meson ninja-build cmake afl*
+          RUN apt install -y clang-9 lldb-9 llvm-9* libfuzzer-9-dev
           RUN apt install -y pkg-config binutils-dev libunwind-dev
 
           RUN groupmod users -g 100
