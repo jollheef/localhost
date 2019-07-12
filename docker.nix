@@ -27,6 +27,7 @@
           RUN apt install -y python3-opencv meson ninja-build cmake afl*
           RUN apt install -y clang-9 lldb-9 llvm-9* libfuzzer-9-dev
           RUN apt install -y pkg-config binutils-dev libunwind-dev
+          RUN apt install -y command-not-found libglib2.0-dev bsdmainutils
 
           RUN groupmod users -g 100
           RUN useradd user -u 1000 -g 100 -s /bin/zsh
