@@ -10,6 +10,21 @@ in {
   services.xserver.windowManager.xmonad.enable = true;
   services.xserver.windowManager.xmonad.enableContribAndExtras = true;
 
+  services.xserver.xautolock = {
+    enable = true;
+
+    time = 5;                   # minutes
+    locker = "${pkgs.i3lock}/bin/i3lock -n -c 000000";
+
+    notify = 10;                # seconds
+    notifier = "${pkgs.libnotify}/bin/notify-send \"Locking in 10 seconds\"";
+
+    killtime = 20;              # minutes
+    killer = "${pkgs.systemd}/bin/systemctl suspend";
+
+    extraOptions = [ "-secure" ];
+  };
+
   services.redshift = {
     enable = true;
     latitude = secrets.latitude;
