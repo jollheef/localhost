@@ -2,7 +2,7 @@
 
 let
   fhs = pkgs.writeShellScriptBin "fhs"
-    ("${pkgs.docker}/bin/docker run -v /home/user:/home/user "+
+    ("${pkgs.docker}/bin/docker run -v /home/user:/home/user -v /nix:/nix "+
      "-e \"HOST_PWD=$PWD\" -it fhs");
 in {
   security.allowUserNamespaces = true;
@@ -55,7 +55,7 @@ in {
     (writeShellScriptBin "fhs-ptrace"
       ("sudo ${pkgs.docker}/bin/docker run -v /home/user:/home/user " +
        "--cap-add=SYS_PTRACE --security-opt seccomp=unconfined" +
-       " -e \"HOST_PWD=$PWD\" -it fhs"))
+       " -e \"HOST_PWD=$PWD\" -v /nix=/nix -it fhs"))
   ];
 
   security.wrappers = {
