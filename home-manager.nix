@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  unstable = import <unstable> {};
   home-manager = builtins.fetchGit {
     url = "https://github.com/rycee/home-manager.git";
     rev = "7d68c46feb845c572ef335f824062f90fdebf655";
@@ -8,8 +9,8 @@ let
 in {
   imports = [ "${home-manager}/nixos" ];
 
-  home-manager.users.user = {
-    programs.git = {
+  home-manager.users.user.programs = {
+    git = {
       enable = true;
       userName  = "Mikhail Klementev";
       userEmail = "blame@dumpstack.io";
