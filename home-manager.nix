@@ -67,6 +67,11 @@ in {
       ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.plugin.zsh".source = ./etc/tmux-my/tmux-my.plugin.zsh;
     };
 
+    home.keyboard = {
+      layout = "us,ru";
+      options = [ "ctrl:nocaps" "grp:rctrl_toggle" ];
+    };
+
     xsession.enable = true;
     xsession.windowManager.command = "exec xmonad";
   };
