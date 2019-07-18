@@ -21,5 +21,8 @@ in {
     };
   };
 
-  home-manager.users.user.home.file.".emacs.d/init.el".source = ./etc/emacs.el;
+  home-manager.users.user.home.file = {
+    ".emacs.d/init.el".source = ./etc/emacs.el;
+    ".xmonad/xmonad.hs".source = ./etc/xmonad.hs;
+  };
 }
