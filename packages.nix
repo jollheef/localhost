@@ -38,7 +38,7 @@ in {
     appimage-run
 
     # utils
-    wget tmux zsh vim emacs htop acpi bc p7zip mpv
+    wget tmux zsh vim htop acpi bc p7zip mpv
     git pass unzip zip w3m whois dnsutils feh
     parted iotop nmap tldr sshfs pinentry_ncurses
     oathToolkit neomutt pciutils easyrsa openvpn
@@ -66,6 +66,23 @@ in {
       pillow opencv3 torchvision
       # elpy
       autopep8 jedi yapf black flake8 rope
+    ]))
+
+    (unstable.emacsWithPackages(epkgs: with epkgs; [
+      # Programming languages modes
+      cobol-mode haskell-mode rust-mode scala-mode csharp-mode d-mode
+      solidity-mode php-mode go-mode elpy
+      # Development
+      helm-gtags slime xcscope
+      # Configuration languages modes
+      nix-mode markdown-mode dockerfile-mode yaml-mode ssh-config-mode
+      toml-mode pcap-mode
+      # Version control
+      magit git-gutter
+      # Generic
+      smex w3m exec-path-from-shell org-kanban
+      # Appearance
+      zenburn-theme solarized-theme
     ]))
 
     # dev
