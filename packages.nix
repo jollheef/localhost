@@ -73,7 +73,7 @@ in {
       cobol-mode haskell-mode rust-mode scala-mode csharp-mode d-mode
       solidity-mode php-mode go-mode elpy
       # Development
-      helm-gtags slime xcscope
+      helm-gtags slime xcscope go-autocomplete
       # Configuration languages modes
       nix-mode markdown-mode dockerfile-mode yaml-mode ssh-config-mode
       toml-mode pcap-mode
