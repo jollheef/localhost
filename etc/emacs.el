@@ -1,3 +1,6 @@
+(setq explicit-shell-file-name "/bin/sh")
+(setq shell-file-name "sh")
+
 ;;
 ;;
 ;; Backups
