@@ -107,5 +107,6 @@ in {
 
   networking.localCommands = ''
     mkdir -p /tmp/chromium && chown user:users /tmp/chromium
+    mkdir -p /tmp/downloads && chown user:users /tmp/downloads
   '';
 }
