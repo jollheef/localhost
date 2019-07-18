@@ -9,20 +9,25 @@ let
 in {
   imports = [ "${home-manager}/nixos" ];
 
-  home-manager.users.user.programs = {
-    git = {
-      enable = true;
-      userName  = "Mikhail Klementev";
-      userEmail = "blame@dumpstack.io";
-      signing = {
-        signByDefault = true;
-        key = "0x1525585D1B43C62A";
+  home-manager.users.user = {
+    programs = {
+      git = {
+        enable = true;
+        userName  = "Mikhail Klementev";
+        userEmail = "blame@dumpstack.io";
+        signing = {
+          signByDefault = true;
+          key = "0x1525585D1B43C62A";
+        };
       };
     };
-  };
 
-  home-manager.users.user.home.file = {
-    ".emacs.d/init.el".source = ./etc/emacs.el;
-    ".xmonad/xmonad.hs".source = ./etc/xmonad.hs;
+    home.file = {
+      ".emacs.d/init.el".source = ./etc/emacs.el;
+      ".xmonad/xmonad.hs".source = ./etc/xmonad.hs;
+    };
+
+    xsession.enable = true;
+    xsession.windowManager.command = "exec xmonad";
   };
 }
