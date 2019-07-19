@@ -144,7 +144,7 @@ in {
     xorg.xcursorthemes capitaine-cursors gnome3.cheese
 
     # x apps
-    unstable.chromium escrotum unstable.wire-desktop unstable.tdesktop ssvnc tightvnc
+    unstable.chromium escrotum unstable.wire-desktop ssvnc tightvnc
     quaternion veracrypt evince krita gimp gnome3.gnome-maps
     android-file-transfer darktable xournal gnome3.eog audacious audacity
     matrique unstable.libreoffice electrum adobe-reader unstable.wireshark lmms
