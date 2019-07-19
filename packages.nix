@@ -2,8 +2,20 @@
 
 let
   unstable = import <unstable> {};
+  emacsWithImagemagick = (unstable.emacs.override {
+    srcRepo = true;
+    imagemagick = unstable.imagemagickBig;
+  });
+  nixpkgs-tars = "https://github.com/NixOS/nixpkgs/archive/";
 in {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      pr64977 = import (fetchTarball "${nixpkgs-tars}7da8de19b1f394c92f27b8d953b85cfce1770427.tar.gz") {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
   programs.zsh.enable = true;
   programs.browserpass.enable = true;
@@ -61,29 +73,54 @@ in {
     spice
     spice-gtk
 
-    (python3.withPackages(ps: with ps; [
-      ipython
-      pillow opencv3 torchvision
-      # elpy
-      autopep8 jedi yapf black flake8 rope
-    ]))
+    # temporary
+    pr64977.telega-server
 
-    (unstable.emacsWithPackages(epkgs: with epkgs; [
-      # Programming languages modes
-      cobol-mode haskell-mode rust-mode scala-mode csharp-mode d-mode
-      solidity-mode php-mode go-mode elpy
-      # Development
-      helm-gtags slime xcscope go-autocomplete
-      # Configuration languages modes
-      nix-mode markdown-mode dockerfile-mode yaml-mode ssh-config-mode
-      toml-mode pcap-mode
-      # Version control
-      magit git-gutter
-      # Generic
-      smex w3m exec-path-from-shell org-kanban
-      # Appearance
-      zenburn-theme solarized-theme
-    ]))
+    ((unstable.emacsPackagesNgGen emacsWithImagemagick).emacsWithPackages(epkgs:
+      # MELPA (Milkypostman’s Emacs Lisp Package Archive)
+      (with epkgs.melpaPackages; [
+        # Programming languages modes
+        haskell-mode rust-mode scala-mode csharp-mode d-mode
+        solidity-mode php-mode go-mode elpy
+        # Development
+        helm-gtags slime xcscope go-autocomplete
+        # Configuration languages modes
+        nix-mode markdown-mode dockerfile-mode yaml-mode ssh-config-mode
+        toml-mode pcap-mode
+        # Version control
+        magit git-gutter
+        # Generic
+        smex w3m exec-path-from-shell org-kanban
+        # Appearance
+        zenburn-theme solarized-theme
+      ])
+      ++
+      # GNU Elpa
+      (with epkgs.elpaPackages; [
+        # Programming languages modes
+        cobol-mode
+      ])
+      ++
+      # Custom packaged
+      [
+        ((unstable.emacsPackagesNgFor emacsWithImagemagick).melpaBuild {
+          pname = "telega";
+          ename = "telega";
+          recipe = fetchurl {
+            url = "https://raw.githubusercontent.com/melpa/melpa/master/recipes/telega";
+            sha256 = "0n1n1fciwh7jbakdjkx36aq6k0is0c694j3n5dicwvfp7spca7p8";
+            name = "recipe";
+          };
+          version = "0.4.0";
+          src = fetchFromGitHub {
+            owner  = "zevlg";
+            repo   = "telega.el";
+            rev    = "0.4.0";
+            sha256 = "1a5fxix2zvs461vn6zn36qgpg65bl38gfb3ivr24wmxq1avja5s1";
+          };
+        })
+      ]
+      ))
 
     # dev
     go gnumake gcc clang clang-analyzer global
