@@ -72,7 +72,20 @@ in {
       options = [ "ctrl:nocaps" "grp:rctrl_toggle" ];
     };
 
-    xsession.enable = true;
-    xsession.windowManager.command = "exec xmonad";
+    xsession = {
+      enable = true;
+      windowManager.command = "exec xmonad";
+      initExtra = ''
+        touchpad=$(xinput | grep -o 'TouchPad.*id=[0-9]*' | cut -d '=' -f 2)
+        trackpoint=$(xinput | grep -o 'TrackPoint.*id=[0-9]*' | cut -d '=' -f 2)
+
+        xsetroot -solid '#000000'
+
+        xinput --disable $touchpad
+        xinput --set-prop $trackpoint 'Device Accel Constant Deceleration' 0.20
+
+        xhost +local
+      '';
+    };
   };
 }

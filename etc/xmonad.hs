@@ -18,10 +18,6 @@ main =  xmonad $ defaultConfig
 startup = do
   setWMName "LG3D"
   spawn "xrandr --auto && xrandr --output DP-1.3 --above DP-2"
-  spawn "xsetroot -solid '#000000'"
-  spawn "xinput --disable $(xinput | grep -o 'Synaptics TouchPad.*id=[0-9]*' | cut -d '=' -f 2)"
-  spawn "xinput --set-prop 15 'Device Accel Constant Deceleration' 0.20"
-  spawn "xhost +local"
 
 windowManage = composeAll
   [ className =? "Emacs"                 --> doShift "1:emacs"
