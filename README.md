@@ -4,12 +4,25 @@
 
 ## Installation
 
-    parted...
-    cryptsetup...
-    mount...
+    parted /dev/vda mklabel gpt
+    parted /dev/vda mkpart EFI fat32 0% 512M
+    parted /dev/vda set 1 esp on
+    parted /dev/vda mkpart NIX ext4 512M 100%
+
+    cryptsetup luksFormat /dev/vda2
+    cryptsetup open /dev/vda2 nix
+
+    mkfs.vfat -F32 /dev/vda1
+    mkfs.ext4 /dev/mapper/nix
+
+    mount /dev/mapper/nix /mnt/
+    mkdir /mnt/boot
+    mount /dev/vda1 /mnt/boot
 
     nix-env -iA nixos.gitMinimal
     git clone https://code.dumpstack.io/infra/localhost.git /mnt/etc/nixos/
+
+    cd /mnt/etc/nixos
 
     cp wireless-networks.nix.example wireless-networks.nix
     nano wireless-networks.nix
