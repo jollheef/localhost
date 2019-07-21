@@ -85,6 +85,8 @@ in {
         xinput --set-prop $trackpoint 'Device Accel Constant Deceleration' 0.20
 
         xhost +local
+
+        kitty &
       '';
     };
   };
