@@ -2,6 +2,12 @@
 
 [Download NixOS installation ISO](https://nixos.org/nixos/download.html)
 
+Notes:
+1. I assume that latest **stable** (e.g. 19.03) ISO will be used for installation.
+2. Check `services.xserver.videoDrivers` in `desktop.nix`. If you not sure it's better to remove the line completely.
+3. Default network configuration is VPN-only, so if you don't have plans to use it you need to change iptables rules (remove `iptables -P OUTPUT DROP` from `networking.nix`) and remove `services.openvpn.servers.vpn` from `networking.nix`.
+4. GUI settings is optimized for 3840x2160 on 15".
+
 ## Installation
 
     parted /dev/vda mklabel gpt
@@ -42,4 +48,4 @@
 
 Initial user password for is `user`.
 
-Default network configuration is VPN-only, so if you don't have plans to use it you need to change iptables rules (remove `iptables -P OUTPUT DROP` from `networking.nix`) and remove `services.openvpn.servers.vpn` from `networking.nix`.
+    sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
