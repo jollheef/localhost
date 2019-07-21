@@ -1,5 +1,7 @@
 # Fully reproducible localhost
 
+[Download NixOS installation ISO](https://nixos.org/nixos/download.html)
+
 ## Installation
 
     parted...
