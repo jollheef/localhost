@@ -105,6 +105,9 @@ in {
 
         xhost +local
 
+        ln -fs /tmp/chromium .config/
+        ln -fs /tmp/chromium .cache/
+
         kitty &
       '';
     };
