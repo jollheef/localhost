@@ -6,6 +6,8 @@ in {
   networking.hostName = "local";
   networking.nameservers = [ "1.1.1.1" ];
 
+  networking.usePredictableInterfaceNames = false;
+
   networking.wireless.enable = true;
   imports = [ ./wireless-networks.nix ];
 
@@ -59,29 +61,31 @@ in {
 
   systemd = {
     services = {
-      "macchanger" = {
-        description = "Changes MAC of all interfaces for privacy reasons";
+      "macchanger-wlan0" = {
+        description = "Changes MAC of wlan0 for privacy reasons";
         wants = [ "network-pre.target" ];
         wantedBy = [ "multi-user.target" ];
         before = [ "network-pre.target" ];
-        bindsTo = [ "sys-subsystem-net-devices-wlp0s20f3.device" ];
-        after = [ "sys-subsystem-net-devices-wlp0s20f3.device" ];
-        # we always return true to avoid errors while 'nixos-rebuild switch'
-        # because it does not stop interfaces
-        # TODO it must be changed to work only when system starts
-        script = ''
-          ${pkgs.macchanger}/bin/macchanger -e wlp0s20f3 || true
-          ${pkgs.macchanger}/bin/macchanger -e enp0s31f6 || true
-        '';
+        bindsTo = [ "sys-subsystem-net-devices-wlan0.device" ];
+        after = [ "sys-subsystem-net-devices-wlan0.device" ];
+        script = "${pkgs.macchanger}/bin/macchanger -e wlan0 || true";
+        serviceConfig.Type = "oneshot";
+      };
+      "macchanger-eth0" = {
+        description = "Changes MAC of eth0 for privacy reasons";
+        wants = [ "network-pre.target" ];
+        wantedBy = [ "multi-user.target" ];
+        before = [ "network-pre.target" ];
+        bindsTo = [ "sys-subsystem-net-devices-eth0.device" ];
+        after = [ "sys-subsystem-net-devices-eth0.device" ];
+        script = "${pkgs.macchanger}/bin/macchanger -e eth0 || true";
         serviceConfig.Type = "oneshot";
       };
       "openvpn-restart-after-suspend" = {
         description = "Restart OpenVPN after suspend";
         after = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
         wantedBy = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
-        script = ''
-          ${pkgs.systemd}/bin/systemctl try-restart openvpn-vpn.service
-        '';
+        script = "${pkgs.systemd}/bin/systemctl try-restart openvpn-vpn.service";
       };
     };
   };
