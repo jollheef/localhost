@@ -35,8 +35,12 @@ in {
     }
   ];
 
-  users.users.root.shell = pkgs.zsh;
+  users.users.root = {
+    initialPassword = "root";
+    shell = pkgs.zsh;
+  };
   users.users.user = {
+    initialPassword = "user";
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [ "wheel" "audio" "libvirtd" ];
