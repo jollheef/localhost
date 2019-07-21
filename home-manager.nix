@@ -104,5 +104,19 @@ in {
         kitty &
       '';
     };
+
+    gtk = {
+      enable = true;
+      theme.name = "Adwaita-dark";
+      font.name = "Ubuntu 12";
+      iconTheme = {
+        name = "Adwaita";
+        package = pkgs.gnome3.adwaita-icon-theme;
+      };
+      gtk2.extraConfig = ''
+        gtk-cursor-theme-name = capitaine-cursors;
+      '';
+      gtk3.extraConfig = { gtk-cursor-theme-name = "capitaine-cursors"; };
+    };
   };
 }

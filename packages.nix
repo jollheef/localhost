@@ -138,7 +138,7 @@ in {
 
     # base x
     rofi xlibs.xmodmap ubuntu_font_family i3lock unstable.kitty
-    libnotify gtk_engines x2x lxappearance-gtk3
+    libnotify gtk_engines x2x
     pulsemixer arc-theme xorg.xhost xclip
     gnome3.dconf gnome3.dconf-editor gsettings-desktop-schemas gsettings-qt
     xorg.xcursorthemes capitaine-cursors gnome3.cheese
