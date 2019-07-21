@@ -1,6 +1,6 @@
 # Fully reproducible localhost
 
-[Download NixOS installation ISO](https://nixos.org/channels/nixos-unstable).
+[Download NixOS installation ISO](https://nixos.org/nixos/download.html)
 
 ## Installation
 
