@@ -73,6 +73,10 @@ in {
       ".emacs.d/init.el".source = ./etc/emacs.el;
       ".xmonad/xmonad.hs".source = ./etc/xmonad.hs;
 
+      ".mutt/mailcap".source = ./etc/mutt/mailcap;
+      ".mutt/muttrc".source = ./etc/mutt/muttrc;
+      ".mutt/signature".source = ./etc/mutt/signature;
+
       ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.extra.conf".source = ./etc/tmux-my/tmux-my.extra.conf;
       ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.only.conf".source = ./etc/tmux-my/tmux-my.only.conf;
       ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.plugin.zsh".source = ./etc/tmux-my/tmux-my.plugin.zsh;

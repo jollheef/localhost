@@ -1,0 +1,70 @@
+# Html
+# see ~/.mutt/mailcap
+set mailcap_path="~/.mutt/mailcap"
+auto_view text/html
+set implicit_autoview=yes
+# Password management
+source "echo set my_pass = `pass root@dumpstack.io` |"
+
+set edit_headers=yes
+
+# Signature
+set signature="~/.mutt/signature"
+
+# View
+set sidebar_visible
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+set editor = 'emacs -nw'
+set user_agent = no
+# auto sync new messages
+set timeout = 30
+
+# PGP
+set crypt_use_gpgme
+set crypt_autoencrypt = yes
+set crypt_replyencrypt = yes
+set pgp_autosign
+set pgp_use_gpg_agent = yes
+set pgp_timeout = 3600
+set pgp_sign_as = 0x1525585D1B43C62A
+set pgp_self_encrypt = yes
+set pgp_self_encrypt_as = 0x1525585D1B43C62A
+
+# Hotkeys
+bind index,pager \Cp sidebar-prev
+bind index,pager \Cn sidebar-next
+bind index,pager \Co sidebar-open
+
+# Account
+set realname  = 'Mikhail'
+set from      = root@dumpstack.io
+
+# Send
+set smtp_url  = "smtp://$from@mail.dumpstack.io:587"
+set smtp_pass = $my_pass
+
+# Connection
+set ssl_force_tls = yes
+set ssl_starttls  = yes
+
+# Receive
+set imap_user = "$from"
+set imap_pass = $my_pass
+set folder    = "imaps://$imap_user@mail.dumpstack.io/"
+
+set spoolfile = +INBOX
+set postponed = +Drafts
+set record    = +Sent
+
+mailboxes +Inbox +Sent +Drafts +Junk +Trash
+
+# Notifications
+set new_mail_command="notify-send 'New Email' '%n new messages, %u unread.' &"
+
+set header_cache = ~/.mutt/header_cache
+set message_cachedir = ~/.mutt/message_cachedir
+
+set sort = threads
+set sort_browser = reverse-date
+set sort_aux = last-date-received
