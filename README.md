@@ -40,6 +40,6 @@
 
 ## After install
 
-Initial password for root is `root`, and for user is `user`.
+Initial user password for is `user`.
 
 Default network configuration is VPN-only, so if you don't have plans to use it you need to change iptables rules (remove `iptables -P OUTPUT DROP` from `networking.nix`) and remove `services.openvpn.servers.vpn` from `networking.nix`.
