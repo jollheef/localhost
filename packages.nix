@@ -76,6 +76,13 @@ in {
     # temporary
     pr64977.telega-server
 
+    (python3.withPackages(ps: with ps; [
+      ipython
+      pillow opencv3 torchvision
+      # elpy
+      autopep8 jedi yapf black flake8 rope
+    ]))
+
     ((unstable.emacsPackagesNgGen emacsWithImagemagick).emacsWithPackages(epkgs:
       # MELPA (Milkypostman’s Emacs Lisp Package Archive)
       (with epkgs.melpaPackages; [
