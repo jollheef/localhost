@@ -56,6 +56,17 @@ in {
           which apt >/dev/null 2>&1 && plugins=("\$\{(@)plugins:#tmux-my\}")
         '';
       };
+
+      gpg.enable = true;
+    };
+
+    services = {
+      gpg-agent = {
+        enable = true;
+        extraConfig = ''
+          pinentry-program ${pkgs.pinentry}/bin/pinentry-curses
+        '';
+      };
     };
 
     home.file = {
