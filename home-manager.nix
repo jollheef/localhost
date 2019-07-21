@@ -80,6 +80,10 @@ in {
       ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.extra.conf".source = ./etc/tmux-my/tmux-my.extra.conf;
       ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.only.conf".source = ./etc/tmux-my/tmux-my.only.conf;
       ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.plugin.zsh".source = ./etc/tmux-my/tmux-my.plugin.zsh;
+
+      ".config/user-dirs.dirs".source = ./etc/user-dirs.dir;
+      ".config/dunst/dunstrc".source = ./etc/dunstrc;
+      ".config/kitty/kitty.conf".source = ./etc/kitty.conf;
     };
 
     home.keyboard = {
