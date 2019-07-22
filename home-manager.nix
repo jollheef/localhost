@@ -21,6 +21,21 @@ in {
         };
       };
 
+      tmux = {
+        enable = true;
+        baseIndex = 1;
+        historyLimit = 100500;
+        keyMode = "emacs";
+        extraConfig = ''
+          unbind C-Space
+          set -g prefix C-Space
+          bind C-Space send-prefix
+
+          set -g status off
+        '';
+        plugins = [ pkgs.tmuxPlugins.yank ];
+      };
+
       zsh = {
         enable = true;
 
