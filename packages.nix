@@ -63,7 +63,7 @@ in {
     exfat traceroute graphicsmagick-imagemagick-compat
     pdftk vnstat dunst ghostscript graphicsmagick
     browsh texlive.combined.scheme-full rubber pandoc
-    jq socat
+    jq socat ffmpeg-full
 
     # gpg-related
     gnupg unstable.yubikey-manager unstable.yubikey-personalization
