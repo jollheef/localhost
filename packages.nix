@@ -154,11 +154,10 @@ in {
     xorg.xcursorthemes capitaine-cursors gnome3.cheese
 
     # x apps
-    unstable.chromium escrotum unstable.wire-desktop ssvnc tightvnc
+    escrotum unstable.wire-desktop ssvnc tightvnc
     quaternion veracrypt evince krita gimp gnome3.gnome-maps
     android-file-transfer darktable xournal gnome3.eog audacious audacity
-    matrique unstable.libreoffice electrum adobe-reader unstable.wireshark lmms
-    unstable.firefox unstable.stellarium
+    matrique libreoffice electrum adobe-reader unstable.wireshark lmms
 
     (writeShellScriptBin "torbrowser" "${unstable.tor-browser-unwrapped}/bin/firefox")
 

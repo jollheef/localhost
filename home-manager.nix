@@ -9,6 +9,8 @@ let
 in {
   imports = [ "${home-manager}/nixos" ];
 
+  home-manager.useUserPackages = true;
+
   home-manager.users.user = {
     programs = {
       git = {
