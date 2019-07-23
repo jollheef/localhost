@@ -163,5 +163,11 @@ in {
     (writeShellScriptBin "torbrowser" "${unstable.tor-browser-unwrapped}/bin/firefox")
 
     (writeShellScriptBin "git-get" "${git}/bin/git clone https://$1 $GOPATH/src/$1")
+
+    (writeShellScriptBin "chromium" ''
+      ${unstable.chromium}/bin/chromium --force-dark-mode \
+                                        --start-maximized \
+                                        $@
+    '')
   ];
 }
