@@ -5,7 +5,7 @@ import XMonad.Util.EZConfig
 
 import qualified XMonad.StackSet as W
 
-main =  xmonad $ defaultConfig
+main =  xmonad $ def
   { terminal    = "kitty"
   , borderWidth = 0
   , modMask     = mod4Mask
