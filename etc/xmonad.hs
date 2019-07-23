@@ -1,6 +1,5 @@
 import XMonad
 import XMonad.Actions.CopyWindow
-import XMonad.Actions.GridSelect
 import XMonad.Hooks.SetWMName
 import XMonad.Util.EZConfig
 
@@ -52,7 +51,6 @@ keysP = [ ("M-l",                     spawn "i3lock -n -c 000000")
         , ("<XF86AudioRaiseVolume>",  spawn "pulsemixer --change-volume +3")
         , ("M-d",                     notifySend 3000 "date")
         , ("M-p",                     spawn "rofi -theme android_notification -font 'Ubuntu Mono 30' -show run")
-        , ("M-g",                     goToSelected defaultGSConfig)
         , ("M-s",                     spawn "kitty")
         , ("M-b",                     notifySend 1000 "acpi -b")
         ]
