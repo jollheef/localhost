@@ -130,7 +130,10 @@ in {
         ln -fs /tmp/chromium .config/
         ln -fs /tmp/chromium .cache/
 
-        kitty &
+        kitty --class=viewShiftW3 &
+        emacs &
+        chromium &
+        wire-desktop &
       '';
     };
 

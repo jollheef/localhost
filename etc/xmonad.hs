@@ -3,6 +3,7 @@ import XMonad.Actions.CopyWindow
 import XMonad.Hooks.SetWMName
 import XMonad.Util.EZConfig
 
+import Control.Monad (liftM2)
 import qualified XMonad.StackSet as W
 
 main =  xmonad $ def
@@ -23,6 +24,10 @@ windowManage = composeAll
 
   , role      =? "browser"               --> doShift "2:web"
 
+  , className =? "viewShiftW3"           --> viewShift "3"
+
+  , className =? "Wire"                  --> doShift "8"
+
   , role      =? "gimp- layer-new"       --> doFloat
   , role      =? "gimp- color-selector"  --> doFloat
   , role      =? "gimp- dock"            --> doF W.focusDown
@@ -32,6 +37,7 @@ windowManage = composeAll
   , className =? "Dunst"                 --> doF W.focusDown <+> doF copyToAll
   ]
  where
+   viewShift = doF . liftM2 (.) W.greedyView W.shift
    role = stringProperty "WM_WINDOW_ROLE"
    command = stringProperty "WM_COMMAND"
 
