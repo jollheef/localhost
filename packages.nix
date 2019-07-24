@@ -55,7 +55,7 @@ in {
     # utils
     wget tmux zsh vim htop acpi bc p7zip mpv
     git pass unzip zip w3m whois dnsutils feh
-    parted iotop nmap tldr sshfs pinentry_ncurses
+    parted iotop nmap tldr sshfs
     oathToolkit neomutt pciutils easyrsa openvpn
     lsof tcpdump ddcutil pmount woeusb tigervnc
     file mkpasswd irssi heroku hdparm debootstrap

@@ -35,6 +35,7 @@ windowManage = composeAll
   , role      =? "toolbox_window"        --> doF W.focusDown
 
   , className =? "Dunst"                 --> doF W.focusDown <+> doF copyToAll
+  , className =? "Pinentry"              --> doFloat <+> doF copyToAll
   ]
  where
    viewShift = doF . liftM2 (.) W.greedyView W.shift
