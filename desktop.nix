@@ -117,6 +117,7 @@ in {
       MetricsReportingEnabled = false;
       BuiltInDnsClientEnabled = false;
       EnableMediaRouter = false;
+      PromotionalTabsEnabled = false;
 
       SyncDisabled = true;
       BlockThirdPartyCookies = true;
