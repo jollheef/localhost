@@ -115,6 +115,7 @@ in {
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
       MetricsReportingEnabled = false;
+      BuiltInDnsClientEnabled = false;
 
       SyncDisabled = true;
       BlockThirdPartyCookies = true;
