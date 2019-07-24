@@ -108,12 +108,12 @@ in {
       TranslateEnabled = false;
       SpellcheckEnabled = false;
       SpellCheckServiceEnabled = false;
-      PrintingEnabled	= false;
+      PrintingEnabled = false;
       SearchSuggestEnabled = false;
       PasswordManagerEnabled = false;
-      SafeBrowsingEnabled	 = false;
+      SafeBrowsingEnabled  = false;
       AutofillAddressEnabled = false;
-      AutofillCreditCardEnabled	= false;
+      AutofillCreditCardEnabled = false;
 
       SyncDisabled = true;
       BlockThirdPartyCookies = true;
