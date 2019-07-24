@@ -74,7 +74,12 @@ in {
         '';
       };
 
-      gpg.enable = true;
+      gpg = {
+        enable = true;
+        settings = {
+          throw-keyids = false;
+        };
+      };
     };
 
     services = {
