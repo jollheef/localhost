@@ -114,6 +114,7 @@ in {
       SafeBrowsingEnabled  = false;
       AutofillAddressEnabled = false;
       AutofillCreditCardEnabled = false;
+      MetricsReportingEnabled = false;
 
       SyncDisabled = true;
       BlockThirdPartyCookies = true;
