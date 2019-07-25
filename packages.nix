@@ -9,7 +9,6 @@ let
   nixpkgs-tars = "https://github.com/NixOS/nixpkgs/archive/";
 in {
   nixpkgs.config = {
-    allowUnfree = true;
     packageOverrides = pkgs: {
       pr64977 = import (pkgs.fetchzip {
           url = "${nixpkgs-tars}7da8de19b1f394c92f27b8d953b85cfce1770427.zip";
@@ -157,7 +156,7 @@ in {
     escrotum unstable.wire-desktop ssvnc tightvnc
     quaternion veracrypt evince krita gimp gnome3.gnome-maps
     android-file-transfer darktable xournal gnome3.eog audacious audacity
-    matrique libreoffice electrum adobe-reader unstable.wireshark lmms
+    libreoffice electrum unstable.wireshark lmms
 
     (writeShellScriptBin "torbrowser" "${unstable.tor-browser-unwrapped}/bin/firefox")
 
