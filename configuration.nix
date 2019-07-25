@@ -21,7 +21,11 @@ in {
 
   time.timeZone = "UTC";
 
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = unstable.linuxPackages_latest;
+  boot.blacklistedKernelModules = [ "nouveau" ];
+
+  hardware.cpu.intel.updateMicrocode = true;
+  hardware.enableRedistributableFirmware = true;
 
   i18n = {
     consoleFont = "latarcyrheb-sun32";
