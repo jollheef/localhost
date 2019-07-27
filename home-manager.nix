@@ -54,9 +54,6 @@ in {
           GOPATH = "\${HOME}";
           PATH = "\${PATH}:\${HOME}/bin";
 
-          GPG_TTY = "$(tty)";
-          SSH_AUTH_SOCK = "$(gpgconf --list-dirs agent-ssh-socket)";
-
           ZSH_TMUX_AUTOSTART = "true";
           ZSH_TMUX_AUTOCONNECT = "true";
         };
@@ -69,7 +66,6 @@ in {
         };
 
         initExtra = ''
-          gpgconf --launch gpg-agent
           which apt >/dev/null 2>&1 && plugins=("\$\{(@)plugins:#tmux-my\}")
         '';
       };
@@ -85,6 +81,7 @@ in {
     services = {
       gpg-agent = {
         enable = true;
+        enableSshSupport = true;
       };
     };
 
