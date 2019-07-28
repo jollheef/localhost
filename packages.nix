@@ -90,7 +90,7 @@ in {
       (with epkgs.melpaPackages; [
         # Programming languages modes
         haskell-mode rust-mode scala-mode csharp-mode d-mode
-        solidity-mode php-mode go-mode elpy
+        solidity-mode php-mode go-mode elpy ponylang-mode
         # Development
         helm-gtags slime xcscope go-autocomplete
         # Configuration languages modes
@@ -132,7 +132,7 @@ in {
       ))
 
     # dev
-    go gnumake gcc clang clang-analyzer global
+    go gnumake gcc clang clang-analyzer global ponyc
     maven binutils-unwrapped openssl bison flex fop libxslt
     cmake manpages unstable.gradle cargo rustc guile hydra
     gitRepo rustfmt bazel ghc zlib gperf ccache opencv gotools
