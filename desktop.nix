@@ -85,6 +85,12 @@ in {
     EndSection
   '';
 
+  services.udev.extraHwdb = ''
+    keyboard:usb:*
+    evdev:input:*
+      KEYBOARD_KEY_700E7=rightctrl # Super_R -> Control_R
+  '';
+
   services.xserver.displayManager.lightdm = {
     background = "black";
     greeters.mini = {
