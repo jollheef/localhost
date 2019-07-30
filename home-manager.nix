@@ -11,6 +11,20 @@ in {
 
   home-manager.useUserPackages = true;
 
+  home-manager.users.root = {
+    programs = {
+      zsh = {
+        enable = true;
+        oh-my-zsh = {
+          enable = true;
+          theme = "gentoo";
+          plugins = [ "git" ];
+        };
+      };
+    };
+    home.file.".emacs.d/init.el".source = ./etc/emacs.el;
+  };
+
   home-manager.users.user = {
     programs = {
       git = {
