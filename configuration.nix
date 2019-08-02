@@ -51,6 +51,10 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.tmpOnTmpfs = true;
 
+  # force update all channels
+  systemd.services.nixos-upgrade.serviceConfig.ExecStartPre =
+    "${pkgs.nix}/bin/nix-channel --update";
+
   system.stateVersion = "19.03";
   system.autoUpgrade.enable = true;
 
