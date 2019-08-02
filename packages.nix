@@ -83,6 +83,8 @@ in {
       pillow opencv3 torchvision
       # elpy
       autopep8 jedi yapf black flake8 rope
+      # Forensics
+      binwalk
     ]))
 
     ((unstable.emacsPackagesNgGen emacsWithImagemagick).emacsWithPackages(epkgs:
