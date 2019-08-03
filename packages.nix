@@ -16,6 +16,9 @@ in {
         }) {
         config = config.nixpkgs.config;
       };
+      master = import (fetchTarball { url = "${nixpkgs-tars}master.tar.gz"; }) {
+        config = config.nixpkgs.config;
+      };
     };
   };
 
@@ -165,9 +168,9 @@ in {
     (writeShellScriptBin "git-get" "${git}/bin/git clone https://$1 $GOPATH/src/$1")
 
     (writeShellScriptBin "chromium" ''
-      ${unstable.chromium}/bin/chromium --force-dark-mode \
-                                        --start-maximized \
-                                        $@
+      ${master.chromium}/bin/chromium --force-dark-mode \
+                                      --start-maximized \
+                                      $@
     '')
   ];
 }
