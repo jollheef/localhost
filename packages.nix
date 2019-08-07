@@ -25,11 +25,7 @@ in {
   programs.zsh.enable = true;
   programs.browserpass.enable = true;
   programs.adb.enable = true;
-
-  programs.java = {
-    enable = true;
-    package = unstable.pkgs.jdk11;
-  };
+  programs.java.enable = true;
 
   services.ntp.enable = true;
   services.tlp.enable = true;
