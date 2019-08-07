@@ -55,8 +55,7 @@ in {
   systemd.services.nixos-upgrade.serviceConfig.ExecStartPre =
     "${pkgs.nix}/bin/nix-channel --update";
 
-  # force run if device was offline
-  systemd.timers.nixos-upgrade.timerConfig.Persistent = true;
+  systemd.timers.nixos-upgrade.timerConfig.OnBootSec = "30m";
 
   system.stateVersion = "19.03";
   system.autoUpgrade.enable = true;
