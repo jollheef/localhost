@@ -56,6 +56,7 @@ in {
     "${pkgs.nix}/bin/nix-channel --update";
 
   systemd.timers.nixos-upgrade.timerConfig.OnBootSec = "30m";
+  systemd.timers.nixos-upgrade.timerConfig.Persistent = true;
 
   system.stateVersion = "19.03";
   system.autoUpgrade.enable = true;
