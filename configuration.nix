@@ -53,7 +53,7 @@ in {
 
   # force update all channels
   systemd.services.nixos-upgrade.serviceConfig.ExecStartPre =
-    "${pkgs.nix}/bin/nix-channel --update";
+    "/bin/sh -c '${pkgs.nix}/bin/nix-channel --update'";
 
   systemd.timers.nixos-upgrade.timerConfig.OnBootSec = "30m";
   systemd.timers.nixos-upgrade.timerConfig.Persistent = true;
