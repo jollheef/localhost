@@ -92,13 +92,6 @@ in {
       };
     };
 
-    services = {
-      gpg-agent = {
-        enable = true;
-        enableSshSupport = true;
-      };
-    };
-
     home.file = {
       ".emacs.d/init.el".source = ./etc/emacs.el;
       ".xmonad/xmonad.hs".source = ./etc/xmonad.hs;
