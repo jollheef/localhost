@@ -10,12 +10,6 @@ let
 in {
   nixpkgs.config = {
     packageOverrides = pkgs: {
-      pr64977 = import (pkgs.fetchzip {
-          url = "${nixpkgs-tars}7da8de19b1f394c92f27b8d953b85cfce1770427.zip";
-          sha256 = "1bc6lg8p8r8sw49vzprzkyvwvm9j8qndbdlj792djkqkvkrpzzka";
-        }) {
-        config = config.nixpkgs.config;
-      };
       master = import (fetchTarball { url = "${nixpkgs-tars}master.tar.gz"; }) {
         config = config.nixpkgs.config;
       };
@@ -74,9 +68,6 @@ in {
     spice
     spice-gtk
 
-    # temporary
-    pr64977.telega-server
-
     (python3.withPackages(ps: with ps; [
       ipython
       pillow opencv3 torchvision
@@ -86,7 +77,7 @@ in {
       binwalk
     ]))
 
-    ((unstable.emacsPackagesNgGen emacsWithImagemagick).emacsWithPackages(epkgs:
+    ((master.emacsPackagesNgGen emacsWithImagemagick).emacsWithPackages(epkgs:
       # MELPA (Milkypostman’s Emacs Lisp Package Archive)
       (with epkgs.melpaPackages; [
         # Programming languages modes
@@ -103,6 +94,8 @@ in {
         smex w3m exec-path-from-shell org-kanban
         # Appearance
         zenburn-theme solarized-theme
+        # IM
+        telega
       ])
       ++
       # GNU Elpa
@@ -110,27 +103,10 @@ in {
         # Programming languages modes
         cobol-mode
       ])
-      ++
-      # Custom packaged
-      [
-        ((unstable.emacsPackagesNgFor emacsWithImagemagick).melpaBuild {
-          pname = "telega";
-          ename = "telega";
-          recipe = fetchurl {
-            url = "https://raw.githubusercontent.com/melpa/melpa/master/recipes/telega";
-            sha256 = "0n1n1fciwh7jbakdjkx36aq6k0is0c694j3n5dicwvfp7spca7p8";
-            name = "recipe";
-          };
-          version = "0.4.0";
-          src = fetchFromGitHub {
-            owner  = "zevlg";
-            repo   = "telega.el";
-            rev    = "0.4.0";
-            sha256 = "1a5fxix2zvs461vn6zn36qgpg65bl38gfb3ivr24wmxq1avja5s1";
-          };
-        })
-      ]
-      ))
+    ))
+
+    # We need to have `telega-server` in $PATH
+    master.emacsPackagesNg.melpaPackages.telega
 
     # dev
     go gnumake gcc clang clang-analyzer global ponyc
