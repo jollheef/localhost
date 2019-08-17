@@ -71,6 +71,7 @@ in {
     (python3.withPackages(ps: with ps; [
       ipython
       pillow opencv3 torchvision
+      PyGithub
       # elpy
       autopep8 jedi yapf black flake8 rope
       # Forensics
