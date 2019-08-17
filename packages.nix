@@ -6,16 +6,7 @@ let
     srcRepo = true;
     imagemagick = unstable.imagemagickBig;
   });
-  nixpkgs-tars = "https://github.com/NixOS/nixpkgs/archive/";
 in {
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      master = import (fetchTarball { url = "${nixpkgs-tars}master.tar.gz"; }) {
-        config = config.nixpkgs.config;
-      };
-    };
-  };
-
   programs.zsh.enable = true;
   programs.browserpass.enable = true;
   programs.adb.enable = true;
@@ -78,7 +69,7 @@ in {
       binwalk
     ]))
 
-    ((master.emacsPackagesNgGen emacsWithImagemagick).emacsWithPackages(epkgs:
+    ((unstable.emacsPackagesNgGen emacsWithImagemagick).emacsWithPackages(epkgs:
       # MELPA (Milkypostman’s Emacs Lisp Package Archive)
       (with epkgs.melpaPackages; [
         # Programming languages modes
@@ -107,7 +98,7 @@ in {
     ))
 
     # We need to have `telega-server` in $PATH
-    master.emacsPackagesNg.melpaPackages.telega
+    unstable.emacsPackagesNg.melpaPackages.telega
 
     # dev
     go gnumake gcc clang clang-analyzer global ponyc
