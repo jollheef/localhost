@@ -19,9 +19,6 @@ in {
     notify = 10;                # seconds
     notifier = "${pkgs.libnotify}/bin/notify-send \"Locking in 10 seconds\"";
 
-    killtime = 60;              # minutes
-    killer = "${pkgs.systemd}/bin/systemctl suspend";
-
     extraOptions = [ "-secure" ];
   };
 
