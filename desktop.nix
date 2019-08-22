@@ -101,6 +101,7 @@ in {
     extensions = [
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
       "ogfcmafjalglgifnmanfmnieipoejdcf" # uMatrix
+      "gcbommkclmclpchllfjekcdonpmejbdp" # HTTPS Everywhere
       "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
       "aapbdbdomjkkjkaonfhkkikfgjllcleb" # Google Translate
       "naepdomgkenhinolocfifgehidddafch" # Browserpass
