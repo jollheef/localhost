@@ -17,12 +17,14 @@ in {
       ./hacks.nix
       ./docker.nix
       ./home-manager.nix
+      ./thinkpad.nix
     ];
 
   time.timeZone = "UTC";
 
   boot.kernelPackages = unstable.linuxPackages_latest;
   boot.blacklistedKernelModules = [ "nouveau" ];
+  boot.earlyVconsoleSetup = true;
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
