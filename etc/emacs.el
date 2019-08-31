@@ -123,9 +123,6 @@
 ;;
 ;;
 
-(require 'exec-path-from-shell)
-(exec-path-from-shell-initialize)
-
 (recentf-mode 1)
 (put 'upcase-region 'disabled nil)
 
@@ -142,7 +139,7 @@
 
 (add-hook 'before-save-hook #'gofmt-before-save)
 
-(setq exec-path (split-string (getenv "PATH") ":"))
+(setq exec-path (append exec-path (split-string (getenv "PATH") ":")))
 
 (defun auto-complete-for-go ()
   (metafmt-mode 1)

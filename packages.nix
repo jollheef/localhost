@@ -86,7 +86,7 @@ in {
         # Version control
         magit git-gutter
         # Generic
-        smex w3m exec-path-from-shell org-kanban
+        smex w3m org-kanban
         # Appearance
         zenburn-theme solarized-theme
         # IM
@@ -99,9 +99,6 @@ in {
         cobol-mode
       ])
     ))
-
-    # We need to have `telega-server` in $PATH
-    unstable.emacsPackagesNg.melpaPackages.telega
 
     # dev
     go gnumake gcc clang clang-analyzer global ponyc
