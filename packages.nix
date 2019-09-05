@@ -31,9 +31,6 @@ in {
   services.tor.client.enable = true;
 
   environment.systemPackages = with pkgs; [
-    # my
-    unstable.out-of-tree
-
     # nix
     patchelfUnstable nix-index
     appimage-run
