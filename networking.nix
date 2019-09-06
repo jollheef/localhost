@@ -41,7 +41,6 @@ in {
       # iptables -A OUTPUT -d 192.0.2.17 -j ACCEPT
       ${secrets.iptables}
     '';
-    checkReversePath = false;
   };
 
   # User without vpn-only restrictions (for captive portals)
