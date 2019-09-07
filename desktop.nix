@@ -86,6 +86,8 @@ in {
     keyboard:usb:*
     evdev:input:*
       KEYBOARD_KEY_700E7=rightctrl # Super_R -> Control_R
+      KEYBOARD_KEY_7B=leftalt # Muhenkan -> Alt_R
+      KEYBOARD_KEY_38=muhenkan # Alt_R -> Muhenkan
   '';
 
   services.xserver.displayManager.lightdm = {

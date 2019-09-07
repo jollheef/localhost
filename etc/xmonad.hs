@@ -9,7 +9,7 @@ import qualified XMonad.StackSet as W
 main =  xmonad $ def
   { terminal    = "kitty"
   , borderWidth = 0
-  , modMask     = mod4Mask
+  , modMask     = mod3Mask
   , startupHook = startup
   , manageHook  = windowManage
   , workspaces  = [ "1:emacs", "2:web", "3", "4", "5", "6", "7", "8", "9" ]
@@ -18,6 +18,7 @@ main =  xmonad $ def
 startup = do
   setWMName "LG3D"
   spawn "xrandr --auto && xrandr --output DP-1.3 --above DP-2"
+  spawn "xmodmap -e 'add mod3 = Muhenkan'"
 
 windowManage = composeAll
   [ className =? "Emacs"                 --> doShift "1:emacs"
