@@ -118,7 +118,7 @@ in {
 
     # x apps
     escrotum unstable.wire-desktop ssvnc tightvnc
-    quaternion veracrypt evince krita gimp gnome3.gnome-maps
+    quaternion veracrypt evince krita gimp gnome3.gnome-maps unstable.blender
     android-file-transfer darktable xournal gnome3.eog audacious audacity
     libreoffice electrum unstable.wireshark lmms
 
