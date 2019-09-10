@@ -63,8 +63,6 @@ in {
       ipython
       pillow opencv3 torchvision
       PyGithub
-      # elpy
-      autopep8 jedi yapf black flake8 rope
       # Forensics
       binwalk
     ]))
@@ -74,7 +72,7 @@ in {
       (with epkgs.melpaPackages; [
         # Programming languages modes
         haskell-mode rust-mode scala-mode csharp-mode d-mode
-        solidity-mode php-mode go-mode elpy ponylang-mode
+        solidity-mode php-mode go-mode ponylang-mode
         # Development
         helm-gtags slime xcscope go-autocomplete
         # Configuration languages modes
