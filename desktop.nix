@@ -88,6 +88,7 @@ in {
       KEYBOARD_KEY_700E7=rightctrl # Super_R -> Control_R
       KEYBOARD_KEY_7B=leftalt # Muhenkan -> Alt_R
       KEYBOARD_KEY_38=muhenkan # Alt_R -> Muhenkan
+      KEYBOARD_KEY_70=rightalt # KATAKANAHIRAGANA -> Alt_R
   '';
 
   services.xserver.displayManager.lightdm = {
