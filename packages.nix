@@ -15,6 +15,7 @@ in {
   services.ntp.enable = true;
   services.tlp.enable = true;
   services.vnstat.enable = true;
+  services.kbfs.enable = true;
 
   virtualisation.docker.enable = true;
 
@@ -50,6 +51,9 @@ in {
 
     # gpg-related
     gnupg unstable.yubikey-manager unstable.yubikey-personalization
+
+    # keybase
+    keybase keybase-gui
 
     # virtualization
     nixops
