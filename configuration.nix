@@ -23,7 +23,7 @@ in {
   time.timeZone = "UTC";
 
   boot.kernelPackages = unstable.linuxPackages_latest;
-  boot.kernelModules = [ "veth" ];
+  boot.kernelModules = [ "veth" "pl2303" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
   boot.earlyVconsoleSetup = true;
 
