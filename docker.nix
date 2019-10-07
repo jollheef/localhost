@@ -28,6 +28,7 @@
           RUN apt install -y clang-10 lldb-10 llvm-10* libfuzzer-10-dev
           RUN apt install -y pkg-config binutils-dev libunwind-dev
           RUN apt install -y command-not-found libglib2.0-dev bsdmainutils
+          RUN apt install -y libarchive-dev nettle-dev
 
           RUN groupmod users -g 100
           RUN useradd user -u 1000 -g 100 -s /bin/zsh
