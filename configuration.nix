@@ -23,7 +23,14 @@ in {
   time.timeZone = "UTC";
 
   boot.kernelPackages = unstable.linuxPackages_latest;
-  boot.kernelModules = [ "veth" "pl2303" ];
+  boot.kernelModules = [
+    "pl2303"
+    "fuse"
+    "veth" "usbnet" "mii" "cdc_ether"
+    "ipt_REJECT" "xt_CHECKSUM" "iptable_mangle"
+    "snd_usb_audio"
+    "thunderbolt" "intel_wmi_thunderbolt"
+  ];
   boot.blacklistedKernelModules = [ "nouveau" ];
   boot.earlyVconsoleSetup = true;
 
