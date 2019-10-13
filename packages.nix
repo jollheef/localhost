@@ -39,7 +39,7 @@ in {
     # utils
     wget tmux zsh vim htop acpi bc p7zip mpv
     git pass unzip zip w3m whois dnsutils feh
-    parted iotop nmap tldr sshfs cointop qrencode
+    parted iotop nmap tldr sshfs qrencode
     oathToolkit neomutt pciutils easyrsa openvpn
     lsof tcpdump ddcutil pmount woeusb tigervnc
     file mkpasswd irssi heroku hdparm debootstrap
@@ -48,6 +48,7 @@ in {
     pdftk vnstat dunst ghostscript graphicsmagick
     browsh texlive.combined.scheme-full rubber pandoc
     jq socat ffmpeg-full exiftool apktool mdl wine zstd
+    unstable.cointop
 
     # gpg-related
     gnupg unstable.yubikey-manager unstable.yubikey-personalization
