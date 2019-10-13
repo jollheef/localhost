@@ -22,10 +22,13 @@ in {
     extraOptions = [ "-secure" ];
   };
 
-  services.redshift = {
-    enable = true;
+  location = {
     latitude = secrets.latitude;
     longitude = secrets.longitude;
+  };
+
+  services.redshift = {
+    enable = true;
   };
 
   programs.dconf.enable = true;
