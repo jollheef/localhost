@@ -132,7 +132,8 @@ in {
     libreoffice electrum unstable.wireshark lmms gnome3.nautilus
     unstable.signal-desktop
 
-    (writeShellScriptBin "torbrowser" "${unstable.tor-browser-unwrapped}/bin/firefox")
+    # TODO return to unstable
+    (writeShellScriptBin "torbrowser" "${tor-browser-unwrapped}/bin/firefox")
 
     (writeShellScriptBin "git-get" "${git}/bin/git clone https://$1 $GOPATH/src/$1")
 
