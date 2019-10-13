@@ -1,5 +1,5 @@
 [global]
-font = Ubuntu Mono 40
+font = Ubuntu Mono 12
 
 [ignore]
 summary = "browserpass: Install native host app"

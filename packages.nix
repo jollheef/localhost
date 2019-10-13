@@ -130,7 +130,7 @@ in {
     quaternion veracrypt evince krita gimp gnome3.gnome-maps unstable.blender
     android-file-transfer darktable xournal gnome3.eog audacious audacity
     libreoffice electrum unstable.wireshark lmms gnome3.nautilus
-    unstable.signal-desktop
+    unstable.signal-desktop lxappearance-gtk3
 
     # TODO return to unstable
     (writeShellScriptBin "torbrowser" "${tor-browser-unwrapped}/bin/firefox")
