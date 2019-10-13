@@ -107,6 +107,7 @@ in {
       "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
       "aapbdbdomjkkjkaonfhkkikfgjllcleb" # Google Translate
       "naepdomgkenhinolocfifgehidddafch" # Browserpass
+      "fihnjjcciajhdojfnbdddfaoknhalnja" # I don't care about cookies
     ];
     extraOpts = {
       DefaultBrowserSettingEnabled = true;
