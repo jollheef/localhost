@@ -39,7 +39,7 @@ in {
     # utils
     wget tmux zsh vim htop acpi bc p7zip mpv
     git pass unzip zip w3m whois dnsutils feh
-    parted iotop nmap tldr sshfs
+    parted iotop nmap tldr sshfs cointop qrencode
     oathToolkit neomutt pciutils easyrsa openvpn
     lsof tcpdump ddcutil pmount woeusb tigervnc
     file mkpasswd irssi heroku hdparm debootstrap
@@ -104,7 +104,7 @@ in {
     maven binutils-unwrapped openssl bison flex fop libxslt
     cmake manpages unstable.gradle cargo rustc guile hydra
     gitRepo rustfmt bazel ghc zlib gperf ccache opencv gotools
-    unstable.zig
+    unstable.zig unstable.meson
 
     # re
     radare2 radare2-cutter
@@ -119,7 +119,7 @@ in {
 
     # base x
     rofi xlibs.xmodmap i3lock unstable.kitty
-    libnotify gtk_engines x2x
+    libnotify gtk_engines x2x evtest
     pulsemixer arc-theme xorg.xhost xclip
     gnome3.dconf gnome3.dconf-editor gsettings-desktop-schemas gsettings-qt
     xorg.xcursorthemes capitaine-cursors gnome3.cheese
@@ -128,7 +128,8 @@ in {
     escrotum unstable.wire-desktop ssvnc tightvnc
     quaternion veracrypt evince krita gimp gnome3.gnome-maps unstable.blender
     android-file-transfer darktable xournal gnome3.eog audacious audacity
-    libreoffice electrum unstable.wireshark lmms
+    libreoffice electrum unstable.wireshark lmms gnome3.nautilus
+    unstable.signal-desktop
 
     (writeShellScriptBin "torbrowser" "${unstable.tor-browser-unwrapped}/bin/firefox")
 
