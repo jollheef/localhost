@@ -38,7 +38,7 @@ in {
 
     # utils
     wget tmux zsh vim htop acpi bc p7zip mpv
-    git pass unzip zip w3m whois dnsutils feh
+    git pass unzip zip w3m whois dnsutils nomacs
     parted iotop nmap tldr sshfs qrencode
     oathToolkit neomutt pciutils easyrsa openvpn
     lsof tcpdump ddcutil pmount woeusb tigervnc
@@ -105,7 +105,7 @@ in {
     maven binutils-unwrapped openssl bison flex fop libxslt
     cmake manpages unstable.gradle cargo rustc guile hydra
     gitRepo rustfmt bazel ghc zlib gperf ccache opencv gotools
-    unstable.zig unstable.meson
+    unstable.zig unstable.meson gdb
 
     # re
     radare2 radare2-cutter
