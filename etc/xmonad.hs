@@ -29,6 +29,8 @@ windowManage = composeAll
 
   , className =? "Wire"                  --> doShift "8"
 
+  , className =? ".anbox-wrapped"        --> doFloat
+
   , role      =? "gimp- layer-new"       --> doFloat
   , role      =? "gimp- color-selector"  --> doFloat
   , role      =? "gimp- dock"            --> doF W.focusDown
