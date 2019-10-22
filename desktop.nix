@@ -37,7 +37,24 @@ in {
   hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+
+  # > bluetooth audio
+  services.blueman.enable = true;
+
+  hardware.bluetooth = {
+    enable = true;
+    extraConfig = "
+      [General]
+      Enable=Source,Sink,Media,Socket
+    ";
+  };
+
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+  };
+  # < bluetooth audio
 
   environment.variables = {
     GDK_SCALE = "2";
