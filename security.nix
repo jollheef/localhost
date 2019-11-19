@@ -8,6 +8,7 @@ let
 in {
   security.allowUserNamespaces = true;
   security.allowSimultaneousMultithreading = true;
+  security.lockKernelModules = false;
 
   programs.ssh.startAgent = false;
   programs.gnupg = {
