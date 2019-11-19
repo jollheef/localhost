@@ -128,6 +128,7 @@ in {
       "aapbdbdomjkkjkaonfhkkikfgjllcleb" # Google Translate
       "naepdomgkenhinolocfifgehidddafch" # Browserpass
       "fihnjjcciajhdojfnbdddfaoknhalnja" # I don't care about cookies
+      "kbfnbcaeplbcioakkpcpgfkobkghlhen" # Grammarly
     ];
     extraOpts = {
       DefaultBrowserSettingEnabled = true;
