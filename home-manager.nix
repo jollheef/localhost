@@ -131,7 +131,7 @@ in {
         ln -fs /tmp/chromium .config/
         ln -fs /tmp/chromium .cache/
 
-        ln -fs ${pkgs.gtk3}/share/gsettings-schemas/gtk+3-*/glib-2.0 .local/share/
+        ln -fs ${unstable.gtk3}/share/gsettings-schemas/gtk+3-*/glib-2.0 .local/share/
 
         kitty --class=viewShiftW3 &
         emacs &
