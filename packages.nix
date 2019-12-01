@@ -62,9 +62,6 @@ in {
     # gpg-related
     gnupg unstable.yubikey-manager unstable.yubikey-personalization
 
-    # keybase
-    keybase keybase-gui
-
     # virtualization
     nixops
     kvm
