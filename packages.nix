@@ -60,7 +60,7 @@ in {
     unstable.cointop unstable.tesseract
 
     # gpg-related
-    gnupg unstable.yubikey-manager unstable.yubikey-personalization
+    gnupg yubikey-manager yubikey-personalization
 
     # virtualization
     nixops
