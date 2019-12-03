@@ -7,14 +7,6 @@ let
     imagemagick = unstable.imagemagickBig;
   });
 in {
-  disabledModules = [
-    "virtualisation/anbox.nix"
-  ];
-
-  imports = [
-    <unstable/nixos/modules/virtualisation/anbox.nix>
-  ];
-
   programs.zsh.enable = true;
   programs.browserpass.enable = true;
   programs.adb.enable = true;
@@ -25,7 +17,6 @@ in {
   services.vnstat.enable = true;
   services.kbfs.enable = true;
 
-  virtualisation.anbox.enable = true;
   virtualisation.docker.enable = true;
 
   virtualisation.libvirtd = {
