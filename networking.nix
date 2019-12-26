@@ -14,6 +14,9 @@ in {
   networking.firewall = {
     enable = true;
     extraCommands = ''
+      ip6tables -F OUTPUT
+      ip6tables -P OUTPUT DROP
+
       iptables -F OUTPUT
       iptables -P OUTPUT DROP
 
