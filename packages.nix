@@ -6,7 +6,17 @@ let
     srcRepo = true;
     imagemagick = unstable.imagemagickBig;
   });
+  nixpkgs-tars = "https://github.com/NixOS/nixpkgs/archive/";
 in {
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      pr75524 = import (fetchTarball "${nixpkgs-tars}f7d7980f82cabbf72ddfe07a2bc4996432b44814.tar.gz") {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
+
   programs.zsh.enable = true;
   programs.browserpass.enable = true;
   programs.adb.enable = true;
@@ -32,6 +42,8 @@ in {
   services.tor.client.enable = true;
 
   environment.systemPackages = with pkgs; [
+    pr75524.codeql
+
     # nix
     patchelfUnstable nix-index
     appimage-run
