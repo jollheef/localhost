@@ -66,7 +66,7 @@ in {
           LC_ALL = "en_US.utf8";
           LIBVIRT_DEFAULT_URI = "qemu:///system";
           GOPATH = "\${HOME}";
-          PATH = "\${PATH}:\${HOME}/bin";
+          PATH = "\${PATH}:\${HOME}/bin:\${HOME}/.local/bin";
 
           ZSH_TMUX_AUTOSTART = "true";
           ZSH_TMUX_AUTOCONNECT = "true";
