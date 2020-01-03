@@ -18,6 +18,7 @@ in {
       ./docker.nix
       ./home-manager.nix
       ./thinkpad.nix
+      ./auto-update.nix
     ];
 
   time.timeZone = "UTC";
@@ -53,15 +54,7 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.tmpOnTmpfs = true;
 
-  # force update all channels
-  systemd.services.nixos-upgrade.serviceConfig.ExecStartPre =
-    "/bin/sh -c '${pkgs.nix}/bin/nix-channel --update'";
-
-  systemd.timers.nixos-upgrade.timerConfig.OnBootSec = "30m";
-  systemd.timers.nixos-upgrade.timerConfig.Persistent = true;
-
-  system.stateVersion = "19.03";
-  system.autoUpgrade.enable = true;
+  system.stateVersion = "19.09";
 
   nix.optimise.automatic = true;
   nix.gc.automatic = true;
