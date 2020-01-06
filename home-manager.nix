@@ -126,7 +126,7 @@ in {
         xinput --disable $touchpad
         xinput --set-prop $trackpoint 'Device Accel Constant Deceleration' 0.20
 
-        xhost +local
+        xhost local:
 
         ln -fs /tmp/chromium .config/
         ln -fs /tmp/chromium .cache/
