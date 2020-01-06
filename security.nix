@@ -30,11 +30,11 @@ in {
     services = {
       "force-lock-after-suspend" = {
         serviceConfig.User = "user";
-        description = "Force i3lock after suspend";
+        description = "Force xsecurelock after suspend";
         before = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
         wantedBy = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
         script = ''
-          DISPLAY=:0 ${pkgs.i3lock}/bin/i3lock -n -c 000000
+          DISPLAY=:0 ${pkgs.xsecurelock}/bin/xsecurelock
         '';
       };
     };

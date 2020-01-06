@@ -118,7 +118,7 @@ in {
     ubuntu_font_family noto-fonts-emoji
 
     # base x
-    rofi xlibs.xmodmap i3lock unstable.kitty
+    rofi xlibs.xmodmap xsecurelock unstable.kitty
     libnotify gtk_engines x2x evtest
     pulsemixer arc-theme xclip
     gnome3.dconf gnome3.dconf-editor gsettings-desktop-schemas gsettings-qt

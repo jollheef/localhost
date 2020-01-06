@@ -52,7 +52,7 @@ notifySend expireTime shellCommand = spawn
           ++ " \"$(" ++ shellCommand ++ ")\""
 
 -- M - modMask, M1 - Alt, C - Control, S - Shift. Use xev.
-keysP = [ ("M-l",                     spawn "i3lock -n -c 000000")
+keysP = [ ("M-l",                     spawn "xsecurelock")
         , ("<Print>",                 spawn "escrotum -Cs")
         , ("<XF86MonBrightnessUp>",   spawn "sudo light -A 3")
         , ("<XF86MonBrightnessDown>", spawn "sudo light -U 3")

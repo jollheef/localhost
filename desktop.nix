@@ -14,7 +14,7 @@ in {
     enable = true;
 
     time = 5;                   # minutes
-    locker = "${pkgs.i3lock}/bin/i3lock -n -c 000000";
+    locker = "${pkgs.xsecurelock}/bin/xsecurelock";
 
     notify = 10;                # seconds
     notifier = "${pkgs.libnotify}/bin/notify-send \"Locking in 10 seconds\"";
