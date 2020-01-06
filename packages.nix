@@ -120,7 +120,7 @@ in {
     # base x
     rofi xlibs.xmodmap i3lock unstable.kitty
     libnotify gtk_engines x2x evtest
-    pulsemixer arc-theme xorg.xhost xclip
+    pulsemixer arc-theme xclip
     gnome3.dconf gnome3.dconf-editor gsettings-desktop-schemas gsettings-qt
     xorg.xcursorthemes capitaine-cursors gnome3.cheese
 
