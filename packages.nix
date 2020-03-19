@@ -90,6 +90,8 @@ in {
         zenburn-theme solarized-theme
         # IM
         telega
+        # NixOS
+        company-nixos-options helm-nixos-options
       ])
       ++
       # GNU Elpa
