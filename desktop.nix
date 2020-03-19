@@ -114,10 +114,7 @@ in {
 
   services.xserver.displayManager.lightdm = {
     background = "black";
-    greeters.mini = {
-      enable = true;
-      user = "user";
-    };
+    greeters.enso.enable = true;
   };
 
   programs.chromium = {
