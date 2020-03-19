@@ -16,6 +16,7 @@ in {
   services.ntp.enable = true;
   services.tlp.enable = true;
   services.vnstat.enable = true;
+  services.ipfs.enable = true;
 
   virtualisation.docker.enable = true;
 
