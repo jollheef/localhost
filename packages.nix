@@ -44,7 +44,7 @@ in {
     git pass unzip zip w3m whois dnsutils nomacs
     parted iotop nmap tldr sshfs qrencode
     oathToolkit neomutt pciutils easyrsa openvpn
-    lsof tcpdump ddcutil pmount woeusb tigervnc
+    lsof tcpdump ddcutil pmount woeusb
     file mkpasswd irssi heroku hdparm debootstrap
     proot fakeroot fakechroot lm_sensors powertop
     exfat traceroute graphicsmagick-imagemagick-compat
