@@ -3,7 +3,7 @@
 [Download NixOS installation ISO](https://nixos.org/nixos/download.html)
 
 Notes:
-1. I assume that latest **stable** (e.g. 19.09) ISO will be used for installation.
+1. I assume that latest **stable** (e.g. 20.03) ISO will be used for installation.
 2. Default network configuration is VPN-only, so if you don't have plans to use it you need to change iptables rules (remove `iptables -P OUTPUT DROP` from `networking.nix`) and remove `services.openvpn.servers.vpn` from `networking.nix`.
 3. GUI settings is optimized for 3840x2160 on 15".
 
