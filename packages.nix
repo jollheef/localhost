@@ -68,7 +68,7 @@ in {
     (nonfree.python3.withPackages(ps: with ps; [
       ipython
       pillow opencv3 torchvision
-      PyGithub
+      PyGithub telethon
       # Forensics
       binwalk
     ]))
