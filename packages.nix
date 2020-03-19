@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  nonfree = import <nixos> { config.allowUnfree = true; };
   unstable = import <unstable> {};
   unstable-nonfree = import <unstable> { config.allowUnfree = true; };
   emacsWithImagemagick = (unstable.emacs.override {
@@ -64,7 +65,7 @@ in {
     spice
     spice-gtk
 
-    (python3.withPackages(ps: with ps; [
+    (nonfree.python3.withPackages(ps: with ps; [
       ipython
       pillow opencv3 torchvision
       PyGithub
