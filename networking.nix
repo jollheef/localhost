@@ -16,6 +16,7 @@ in {
     extraCommands = ''
       ip6tables -F OUTPUT
       ip6tables -P OUTPUT DROP
+      ip6tables -A OUTPUT -o lo+ -j ACCEPT
 
       iptables -F OUTPUT
       iptables -P OUTPUT DROP
