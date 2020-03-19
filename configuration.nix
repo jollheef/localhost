@@ -25,16 +25,15 @@ in {
 
   boot.kernelPackages = unstable.linuxPackages_latest;
   boot.blacklistedKernelModules = [ "nouveau" ];
-  boot.earlyVconsoleSetup = true;
+
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  console.font = "latarcyrheb-sun32";
+  console.keyMap = "us";
+  console.earlySetup = true;
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
-
-  i18n = {
-    consoleFont = "latarcyrheb-sun32";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
 
   swapDevices = [
     { device = "/var/swapfile";
