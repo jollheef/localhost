@@ -157,8 +157,8 @@ in {
       BrowserSignin = 0;
 
       DefaultSearchProviderEnabled = true;
-      DefaultSearchProviderSearchURL = "https://duckduckgo.com/"
-        + "?kae=d&k1=-1&kc=1&kav=1&kd=-1&kh=1&q={searchTerms}";
+      DefaultSearchProviderSearchURL = "https://www.google.com/"
+        + "search?gl=us&gws_rd=cr&q={searchTerms}";
 
       # Do not allow any site to show desktop notifications
       DefaultNotificationsSetting = 2;
