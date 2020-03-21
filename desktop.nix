@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
 let
+  nonfree = import <nixos> { config.allowUnfree = true; };
   secrets = import ./secrets.nix;
 in {
   services.xserver.enable = true;
@@ -67,6 +68,11 @@ in {
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       ubuntu_font_family
+      cantarell_fonts
+      cm_unicode
+      google-fonts
+
+      nonfree.corefonts
     ];
   };
 
