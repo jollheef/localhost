@@ -119,7 +119,7 @@ in {
     cm_unicode
 
     # fonts
-    ubuntu_font_family noto-fonts-emoji
+    gnome3.gnome-font-viewer
 
     # base x
     rofi xlibs.xmodmap xsecurelock unstable.kitty
