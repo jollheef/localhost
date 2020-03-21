@@ -68,6 +68,7 @@ in {
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       ubuntu_font_family
+      noto-fonts-emoji
       cantarell_fonts
       cm_unicode
       google-fonts
