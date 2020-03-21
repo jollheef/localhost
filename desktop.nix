@@ -71,6 +71,7 @@ in {
       cantarell_fonts
       cm_unicode
       google-fonts
+      go-font
 
       nonfree.corefonts
     ];
