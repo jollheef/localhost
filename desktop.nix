@@ -73,6 +73,7 @@ in {
       cm_unicode
       google-fonts
       go-font
+      cm_unicode
 
       nonfree.corefonts
     ];
