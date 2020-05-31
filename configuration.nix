@@ -55,7 +55,7 @@ in {
 
   system.stateVersion = "19.09";
 
-  nix.trustedUsers = [ "user" ];
+  nix.trustedUsers = [ "root" "user" ];
   nix.optimise.automatic = true;
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 7d";
