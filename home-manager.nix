@@ -70,6 +70,8 @@ in {
 
           ZSH_TMUX_AUTOSTART = "true";
           ZSH_TMUX_AUTOCONNECT = "true";
+
+          NIX_AUTO_RUN = "true";
         };
 
         shellAliases = {
