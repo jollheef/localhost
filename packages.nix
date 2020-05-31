@@ -103,13 +103,6 @@ in {
       ])
     ))
 
-    # dev
-    go gnumake gcc clang clang-analyzer global ponyc
-    maven binutils-unwrapped openssl bison flex fop libxslt
-    cmake manpages unstable.gradle cargo rustc guile hydra
-    gitRepo rustfmt bazel ghc zlib gperf ccache opencv gotools
-    unstable.zig unstable.meson gdb
-
     # re
     radare2 radare2-cutter
 
