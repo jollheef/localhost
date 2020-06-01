@@ -89,7 +89,7 @@ in {
         # Generic
         smex w3m org-kanban
         # Appearance
-        zenburn-theme solarized-theme
+        zenburn-theme solarized-theme wc-mode
         # IM
         telega
         # NixOS
