@@ -36,10 +36,6 @@ in {
   environment.systemPackages = with pkgs; [
     unstable-nonfree.codeql
 
-    # nix
-    patchelfUnstable nix-index
-    appimage-run
-
     # utils
     wget tmux zsh vim htop acpi bc p7zip mpv
     git pass unzip zip w3m whois dnsutils nomacs
@@ -120,13 +116,9 @@ in {
     xorg.xcursorthemes capitaine-cursors gnome3.cheese
 
     # x apps
-    escrotum unstable.wire-desktop tightvnc
-    evince krita gimp gnome3.gnome-maps unstable.blender
-    android-file-transfer darktable xournal gnome3.eog audacious audacity
-    libreoffice electrum unstable.wireshark lmms gnome3.nautilus
+    escrotum unstable.wire-desktop evince gimp gnome3.gnome-maps
+    android-file-transfer libreoffice electrum gnome3.nautilus
     unstable.signal-desktop lxappearance-gtk3
-
-    unstable.tor-browser-bundle-bin
 
     (writeShellScriptBin "git-get" "${git}/bin/git clone https://$1 $GOPATH/src/$1")
 
