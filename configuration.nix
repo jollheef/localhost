@@ -53,7 +53,7 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.tmpOnTmpfs = true;
 
-  system.stateVersion = "19.09";
+  system.stateVersion = "20.03";
 
   nix.trustedUsers = [ "root" "user" ];
   nix.optimise.automatic = true;
