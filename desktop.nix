@@ -121,10 +121,7 @@ in {
       KEYBOARD_KEY_70=rightalt # KATAKANAHIRAGANA -> Alt_R
   '';
 
-  services.xserver.displayManager.lightdm = {
-    background = "black";
-    greeters.enso.enable = true;
-  };
+  services.xserver.displayManager.lightdm.greeters.enso.enable = true;
 
   programs.chromium = {
     enable = true;
