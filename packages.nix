@@ -74,6 +74,7 @@ in {
         # Programming languages modes
         haskell-mode rust-mode scala-mode csharp-mode d-mode
         solidity-mode php-mode go-mode ponylang-mode zig-mode
+        goimports
         # Development
         helm-gtags slime xcscope go-autocomplete
         # Configuration languages modes
