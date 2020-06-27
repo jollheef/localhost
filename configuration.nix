@@ -1,4 +1,5 @@
-# nix-channel --add https://nixos.org/channels/nixos-19.03 nixos
+# nix-channel --add https://nixos.org/channels/nixos-20.03 nixos
+# nix-channel --add https://nixos.org/channels/nixos-20.03-small nixos-small
 # nix-channel --add https://nixos.org/channels/nixos-unstable unstable
 # nix-channel --update
 #
@@ -6,6 +7,7 @@
 
 let
   unstable = import <unstable> {};
+  nixos-small = import <nixos-small> {};
 in {
   imports =
     [ <nixpkgs/nixos/modules/profiles/hardened.nix>
@@ -23,7 +25,7 @@ in {
 
   time.timeZone = "UTC";
 
-  boot.kernelPackages = unstable.linuxPackages_latest;
+  boot.kernelPackages = nixos-small.linuxPackages_latest;
   boot.blacklistedKernelModules = [ "nouveau" ];
 
   i18n.defaultLocale = "en_US.UTF-8";
