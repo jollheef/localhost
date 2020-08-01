@@ -120,7 +120,7 @@ in {
       enable = true;
       windowManager.command = "exec xmonad";
       initExtra = ''
-        touchpad=$(xinput | grep -o 'TouchPad.*id=[0-9]*' | cut -d '=' -f 2)
+        touchpad=$(xinput | grep -o 'Synaptics.*id=[0-9]*' | cut -d '=' -f 2)
         trackpoint=$(xinput | grep -o 'TrackPoint.*id=[0-9]*' | cut -d '=' -f 2)
 
         xsetroot -solid '#000000'
