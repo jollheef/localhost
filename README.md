@@ -50,3 +50,4 @@ Initial password for `user` is `user`.
 
     sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
     sudo nix-channel --add https://nixos.org/channels/nixos-20.03-small nixos-small
+    sudo nix-channel --update
