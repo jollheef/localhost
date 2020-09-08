@@ -4,10 +4,6 @@ let
   nonfree = import <nixos> { config.allowUnfree = true; };
   unstable = import <unstable> {};
   unstable-nonfree = import <unstable> { config.allowUnfree = true; };
-  emacsWithImagemagick = (unstable.emacs.override {
-    srcRepo = true;
-    imagemagick = unstable.imagemagickBig;
-  });
 in {
   programs.zsh.enable = true;
   programs.browserpass.enable = true;
@@ -68,7 +64,7 @@ in {
       binwalk
     ]))
 
-    ((unstable.emacsPackagesNgGen emacsWithImagemagick).emacsWithPackages(epkgs:
+    (unstable.emacsWithPackages(epkgs:
       # MELPA (Milkypostman’s Emacs Lisp Package Archive)
       (with epkgs.melpaPackages; [
         # Programming languages modes
