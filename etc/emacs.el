@@ -62,7 +62,7 @@
 
 ;; Set default font
 ;;(set-default-font "-unknown-Ubuntu Mono-normal-normal-normal-*-*-*-*-*-m-0-iso10646-1")
-(set-default-font "Ubuntu Mono 10")
+;;(set-frame-font "Ubuntu Mono 10")
 
 (setq-default indent-tabs-mode t)
 
