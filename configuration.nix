@@ -57,8 +57,12 @@ in {
 
   system.stateVersion = "20.03";
 
-  nix.trustedUsers = [ "root" "user" ];
-  nix.optimise.automatic = true;
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 7d";
+  nix = {
+    trustedUsers = [ "root" "user" ];
+    optimise.automatic = true;
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
+  };
 }
