@@ -4,7 +4,7 @@
   systemd = {
     services = {
       "docker-build-fhs" = {
-        enable = true;
+        enable = false;
         description = "Create fhs docker container";
         wantedBy = [ "multi-user.target" ];
         script = ''
