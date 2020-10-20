@@ -138,7 +138,6 @@ in {
         kitty --class=viewShiftW3 &
         emacs &
         chromium &
-        wire-desktop &
       '';
     };
 
