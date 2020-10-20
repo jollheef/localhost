@@ -53,8 +53,7 @@ in {
     isNormalUser = true;
   };
 
-  # FIXME Broken in 20.09
-  #services.nscd.enable = false;
+  services.nscd.enable = false;
 
   services.openvpn.servers.vpn = {
     autoStart = true;
