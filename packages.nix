@@ -43,7 +43,7 @@ in {
     pdftk vnstat dunst ghostscript graphicsmagick
     browsh texlive.combined.scheme-full rubber pandoc
     jq socat ffmpeg-full exiftool apktool mdl wine zstd
-    unstable.cointop unstable.tesseract
+    unstable.cointop unstable.tesseract dislocker
 
     # gpg-related
     gnupg yubikey-manager yubikey-personalization
