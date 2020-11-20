@@ -4,7 +4,7 @@ let
   unstable = import <unstable> {};
   home-manager = builtins.fetchGit {
     url = "https://github.com/rycee/home-manager.git";
-    rev = "8bbefa77f7e95c80005350aeac6fe425ce47c288"; # Updated 28 May 2020
+    rev = "7b6ebf2785cfc9dd6fc2b101cbbb2152eb68d45c"; # Updated 17 Nov 2020
   };
 in {
   imports = [ "${home-manager}/nixos" ];
