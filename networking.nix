@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 let
   secrets = import ./secrets.nix;
@@ -54,6 +54,7 @@ in {
   };
 
   services.nscd.enable = false;
+  system.nssModules = lib.mkForce [];
 
   services.openvpn.servers.vpn = {
     autoStart = true;
