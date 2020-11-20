@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <unstable> {};
   fhs = pkgs.writeShellScriptBin "fhs"
     ("${pkgs.docker}/bin/docker run -v /home/user:/home/user -v /nix:/nix "+
      "-e \"HOST_PWD=$PWD\" -it fhs");
@@ -47,7 +46,7 @@ in {
       %wheel ALL=(ALL:ALL) NOPASSWD: ${pkgs.light}/bin/light
       %wheel ALL=(captive) NOPASSWD: ${pkgs.firefox}/bin/firefox
       %wheel ALL=(root) NOPASSWD: ${fhs}/bin/fhs
-      %wheel ALL=(out-of-tree) NOPASSWD: ${unstable.out-of-tree}/bin/out-of-tree
+      %wheel ALL=(out-of-tree) NOPASSWD: ${pkgs.out-of-tree}/bin/out-of-tree
     '';
   };
 
@@ -65,7 +64,7 @@ in {
        "--cap-add=SYS_PTRACE --security-opt seccomp=unconfined" +
        " -e \"HOST_PWD=$PWD\" -v /nix=/nix -it fhs"))
     (writeShellScriptBin "out-of-tree"
-      "sudo -H -u out-of-tree ${unstable.out-of-tree}/bin/out-of-tree $@")
+      "sudo -H -u out-of-tree ${pkgs.out-of-tree}/bin/out-of-tree $@")
   ];
 
   security.wrappers = {

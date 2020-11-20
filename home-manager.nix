@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  unstable = import <unstable> {};
   home-manager = builtins.fetchGit {
     url = "https://github.com/rycee/home-manager.git";
     rev = "7b6ebf2785cfc9dd6fc2b101cbbb2152eb68d45c"; # Updated 17 Nov 2020
@@ -133,7 +132,7 @@ in {
         ln -fs /tmp/chromium .config/
         ln -fs /tmp/chromium .cache/
 
-        ln -fs ${unstable.gtk3}/share/gsettings-schemas/gtk+3-*/glib-2.0 .local/share/
+        ln -fs ${pkgs.gtk3}/share/gsettings-schemas/gtk+3-*/glib-2.0 .local/share/
 
         kitty --class=viewShiftW3 &
         emacs &

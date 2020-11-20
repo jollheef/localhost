@@ -2,8 +2,6 @@
 
 let
   nonfree = import <nixos> { config.allowUnfree = true; };
-  unstable = import <unstable> {};
-  unstable-nonfree = import <unstable> { config.allowUnfree = true; };
 in {
   programs.zsh.enable = true;
   programs.browserpass.enable = true;
@@ -29,7 +27,7 @@ in {
   services.tor.client.enable = true;
 
   environment.systemPackages = with pkgs; [
-    unstable-nonfree.codeql
+    nonfree.codeql
 
     # utils
     wget tmux zsh vim htop acpi bc p7zip mpv
@@ -43,7 +41,7 @@ in {
     pdftk vnstat dunst ghostscript graphicsmagick
     browsh texlive.combined.scheme-full rubber pandoc
     jq socat ffmpeg-full exiftool apktool mdl wine zstd
-    unstable.cointop unstable.tesseract dislocker
+    cointop tesseract dislocker
 
     # gpg-related
     gnupg yubikey-manager yubikey-personalization
@@ -64,7 +62,7 @@ in {
       binwalk
     ]))
 
-    (unstable.emacsWithPackages(epkgs:
+    (emacsWithPackages(epkgs:
       # MELPA (Milkypostman’s Emacs Lisp Package Archive)
       (with epkgs.melpaPackages; [
         # Programming languages modes
@@ -105,21 +103,21 @@ in {
     gnome3.gnome-font-viewer
 
     # base x
-    rofi xlibs.xmodmap xsecurelock unstable.kitty
+    rofi xlibs.xmodmap xsecurelock kitty
     libnotify gtk_engines x2x evtest
     pulsemixer arc-theme xclip
     gnome3.dconf gnome3.dconf-editor gsettings-desktop-schemas gsettings-qt
     xorg.xcursorthemes capitaine-cursors gnome3.cheese
 
     # x apps
-    escrotum unstable.wire-desktop evince gimp gnome3.gnome-maps
+    escrotum wire-desktop evince gimp gnome3.gnome-maps
     android-file-transfer libreoffice electrum gnome3.nautilus
-    unstable.signal-desktop
+    signal-desktop
 
     (writeShellScriptBin "git-get" "${git}/bin/git clone https://$1 $GOPATH/src/$1")
 
     (writeShellScriptBin "chromium" ''
-      ${unstable.chromium}/bin/chromium --force-dark-mode \
+      ${chromium}/bin/chromium --force-dark-mode \
                                       --start-maximized \
                                       $@
     '')

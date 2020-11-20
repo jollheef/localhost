@@ -1,12 +1,10 @@
-# nix-channel --add https://nixos.org/channels/nixos-20.03 nixos
-# nix-channel --add https://nixos.org/channels/nixos-20.03-small nixos-small
-# nix-channel --add https://nixos.org/channels/nixos-unstable unstable
+# nix-channel --add https://nixos.org/channels/nixos-20.09 nixos
+# nix-channel --add https://nixos.org/channels/nixos-20.09-small nixos-small
 # nix-channel --update
 #
 { config, pkgs, ... }:
 
 let
-  unstable = import <unstable> {};
   nixos-small = import <nixos-small> {};
 in {
   imports =
@@ -55,7 +53,7 @@ in {
   boot.loader.efi.canTouchEfiVariables = true;
   boot.tmpOnTmpfs = true;
 
-  system.stateVersion = "20.03";
+  system.stateVersion = "20.09";
 
   nix = {
     trustedUsers = [ "root" "user" ];

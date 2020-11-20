@@ -35,8 +35,8 @@ Notes:
     cp secrets.nix.example secrets.nix
     nano secrets.nix
 
-    nix-channel --add https://nixos.org/channels/nixos-unstable unstable
-    nix-channel --add https://nixos.org/channels/nixos-20.03-small nixos-small
+    nix-channel --add https://nixos.org/channels/nixos-20.09 nixos
+    nix-channel --add https://nixos.org/channels/nixos-20.09-small nixos-small
     nix-channel --update
 
     nixos-generate-config --root /mnt
@@ -48,6 +48,6 @@ Notes:
 
 Initial password for `user` is `user`.
 
-    sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
-    sudo nix-channel --add https://nixos.org/channels/nixos-20.03-small nixos-small
+    sudo nix-channel --add https://nixos.org/channels/nixos-20.09 nixos
+    sudo nix-channel --add https://nixos.org/channels/nixos-20.09-small nixos-small
     sudo nix-channel --update
