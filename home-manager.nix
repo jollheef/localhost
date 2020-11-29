@@ -25,6 +25,19 @@ in {
   };
 
   home-manager.users.user = {
+    services.dunst = {
+      enable = true;
+      settings = {
+        global = {
+          font = "Ubuntu Mono 12";
+        };
+        ignore = {
+          summary = "browserpass: Install native host app";
+          format = "";
+        };
+      };
+    };
+
     programs = {
       git = {
         enable = true;
@@ -106,7 +119,6 @@ in {
       ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.plugin.zsh".source = ./etc/tmux-my/tmux-my.plugin.zsh;
 
       ".config/user-dirs.dirs".source = ./etc/user-dirs.dir;
-      ".config/dunst/dunstrc".source = ./etc/dunstrc;
       ".config/kitty/kitty.conf".source = ./etc/kitty.conf;
     };
 
