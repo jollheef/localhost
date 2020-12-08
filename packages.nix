@@ -77,7 +77,7 @@ in {
         # Version control
         magit git-gutter
         # Generic
-        smex w3m org-kanban
+        smex w3m org-kanban org-brain
         # Appearance
         zenburn-theme solarized-theme wc-mode
         # IM
