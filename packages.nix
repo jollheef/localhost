@@ -112,7 +112,7 @@ in {
     # x apps
     escrotum wire-desktop evince gimp gnome3.gnome-maps
     android-file-transfer libreoffice electrum gnome3.nautilus
-    signal-desktop
+    signal-desktop rdesktop
 
     (writeShellScriptBin "git-get" "${git}/bin/git clone https://$1 $GOPATH/src/$1")
 
