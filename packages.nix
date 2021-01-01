@@ -41,7 +41,7 @@ in {
     pdftk vnstat dunst ghostscript graphicsmagick
     browsh texlive.combined.scheme-full rubber pandoc
     jq socat ffmpeg-full exiftool apktool mdl wine zstd
-    cointop tesseract dislocker
+    cointop tesseract dislocker ffmpeg-normalize
 
     # gpg-related
     gnupg yubikey-manager yubikey-personalization
