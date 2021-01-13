@@ -1,9 +1,8 @@
 { config, pkgs, ... }:
 
 let
-  home-manager = builtins.fetchGit {
-    url = "https://github.com/rycee/home-manager.git";
-    rev = "7b6ebf2785cfc9dd6fc2b101cbbb2152eb68d45c"; # Updated 17 Nov 2020
+  home-manager = builtins.fetchTarball {
+    url = "https://github.com/nix-community/home-manager/archive/release-20.09.tar.gz";
   };
 in {
   imports = [ "${home-manager}/nixos" ];
