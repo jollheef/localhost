@@ -8,8 +8,7 @@ let
   nixos-small = import <nixos-small> {};
 in {
   imports =
-    [ <nixpkgs/nixos/modules/profiles/hardened.nix>
-      ./hardware-configuration.nix
+    [ ./hardware-configuration.nix
       ./packages.nix
       ./networking.nix
       ./desktop.nix
