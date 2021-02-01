@@ -68,7 +68,7 @@ in {
   };
 
   fonts = {
-    fontDir.enable = true;
+    enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       ubuntu_font_family
