@@ -4,12 +4,16 @@ let
   nonfree = import <nixos> { config.allowUnfree = true; };
   secrets = import ./secrets.nix;
 in {
-  services.xserver.enable = true;
-  services.xserver.layout = "us,ru"; # see also home-manager.nix
-  services.xserver.xkbOptions = "ctrl:nocaps,grp:rctrl_toggle"; # see also home-manager.nix
-  services.xserver.windowManager.xmonad.enable = true;
-  services.xserver.windowManager.xmonad.enableContribAndExtras = true;
-  services.xserver.dpi = 282;   # 15.6 inch, 3840x2160
+  services.xserver = {
+    enable = true;
+    layout = "us,ru"; # see also home-manager.nix
+    xkbOptions = "ctrl:nocaps,grp:rctrl_toggle"; # see also home-manager.nix
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+    };
+    dpi = 282;   # 15.6 inch, 3840x2160
+  };
 
   services.xserver.xautolock = {
     enable = true;
