@@ -33,15 +33,18 @@ in {
     wget tmux zsh vim htop acpi bc p7zip mpv
     git pass unzip zip w3m whois dnsutils nomacs
     parted iotop nmap tldr sshfs qrencode
-    oathToolkit neomutt pciutils easyrsa openvpn
-    lsof tcpdump ddcutil pmount woeusb
-    file mkpasswd irssi heroku hdparm debootstrap
+    oathToolkit neomutt pciutils openvpn
+    lsof tcpdump pmount woeusb
+    file mkpasswd heroku hdparm debootstrap
     proot fakeroot fakechroot lm_sensors powertop
     exfat traceroute graphicsmagick-imagemagick-compat
     pdftk vnstat dunst ghostscript graphicsmagick
-    browsh texlive.combined.scheme-full rubber pandoc
+    texlive.combined.scheme-full rubber pandoc
     jq socat ffmpeg-full exiftool apktool mdl wine zstd
-    cointop tesseract dislocker ffmpeg-normalize
+    tesseract dislocker ffmpeg-normalize
+
+    # development
+    sbcl go
 
     # gpg-related
     gnupg yubikey-manager yubikey-personalization
