@@ -5,6 +5,9 @@ let
 in {
   networking.hostName = "local";
   networking.nameservers = [ "1.1.1.1" ];
+  environment.etc = {
+    "resolv.conf".text = "nameserver 1.1.1.1\n";
+  };
 
   networking.usePredictableInterfaceNames = false;
 
