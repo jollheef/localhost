@@ -41,7 +41,7 @@ in {
     pdftk vnstat dunst ghostscript graphicsmagick
     texlive.combined.scheme-full rubber pandoc
     jq socat ffmpeg-full exiftool apktool mdl wine zstd
-    tesseract dislocker ffmpeg-normalize
+    tesseract dislocker ffmpeg-normalize mkvtoolnix-cli
 
     # development
     sbcl go
