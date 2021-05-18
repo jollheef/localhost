@@ -14,6 +14,8 @@ in {
   networking.wireless.enable = true;
   imports = [ ./wireless-networks.nix ];
 
+  networking.extraHosts = secrets.hosts;
+
   networking.firewall = {
     enable = true;
     extraCommands = ''
