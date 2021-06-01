@@ -83,8 +83,6 @@ in {
         smex w3m org-kanban org-brain
         # Appearance
         zenburn-theme solarized-theme wc-mode
-        # IM
-        telega
         # NixOS
         company-nixos-options helm-nixos-options
       ])
@@ -115,7 +113,7 @@ in {
     # x apps
     escrotum wire-desktop evince gimp gnome3.gnome-maps
     android-file-transfer libreoffice electrum gnome3.nautilus
-    signal-desktop signal-cli rdesktop tdesktop
+    signal-desktop signal-cli rdesktop
 
     (writeShellScriptBin "git-get" "${git}/bin/git clone https://$1 $GOPATH/src/$1")
 

@@ -71,6 +71,8 @@ in {
 
   systemd = {
     services = {
+      ntpd.serviceConfig.TimeoutStopSec = 5;
+
       "macchanger-wlan0" = {
         description = "Changes MAC of wlan0 for privacy reasons";
         wants = [ "network-pre.target" ];

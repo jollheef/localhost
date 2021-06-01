@@ -28,7 +28,7 @@
           RUN apt install -y clang-11 lldb-11 llvm-11* libfuzzer-11-dev
           RUN apt install -y pkg-config binutils-dev libunwind-dev
           RUN apt install -y command-not-found libglib2.0-dev bsdmainutils
-          RUN apt install -y libarchive-dev nettle-dev
+          RUN apt install -y libarchive-dev nettle-dev libseccomp-dev
 
           RUN groupmod users -g 100
           RUN useradd user -u 1002 -g 100 -s /bin/zsh
