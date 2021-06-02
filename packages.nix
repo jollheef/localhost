@@ -111,7 +111,7 @@ in {
     xorg.xcursorthemes capitaine-cursors gnome3.cheese
 
     # x apps
-    escrotum wire-desktop evince gimp gnome3.gnome-maps
+    escrotum evince gimp gnome3.gnome-maps
     android-file-transfer libreoffice electrum gnome3.nautilus
     signal-desktop signal-cli rdesktop
 
