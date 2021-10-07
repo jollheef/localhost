@@ -19,6 +19,9 @@ in {
   services.tlp.enable = true;
   services.vnstat.enable = true;
 
+  services.usbmuxd.enable = true;
+  services.usbmuxd.user = "user";
+
   virtualisation.docker.enable = true;
 
   virtualisation.libvirtd = {
