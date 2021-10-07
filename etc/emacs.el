@@ -201,3 +201,46 @@
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 (setq elpy-rpc-python-command "python3")
+
+(selectrum-mode +1)
+
+;; to make sorting and filtering more intelligent
+(selectrum-prescient-mode +1)
+
+;; to save your command history on disk, so the sorting gets more
+;; intelligent over time
+(prescient-persist-mode +1)
+
+;;
+;; org-mode
+;;
+
+(use-package org-roam
+  :ensure t
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (org-roam-directory (file-truename "~/org/roam"))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+	 ("C-c n f" . org-roam-node-find)
+	 ("C-c n g" . org-roam-graph)
+	 ("C-c n i" . org-roam-node-insert)
+	 ("C-c n c" . org-roam-capture)
+	 ;; Dailies
+	 ("C-c n j" . org-roam-dailies-capture-today))
+  :config
+  (org-roam-db-autosync-mode)
+  ;; If using org-roam-protocol
+  (require 'org-roam-protocol))
+
+;; RFC 5545 compatible keyword sequences; shortcuts of first element in each
+;; sequence match those of the capture templates' shortcuts
+(setq org-todo-keywords
+      '((sequence "NEEDS-ACTION(t)" "IN-PROCESS(i)" "|" "COMPLETED(d)")
+	(sequence "TENTATIVE(e)" "|" "CONFIRMED(c)")
+	(sequence "DRAFT(j)" "|" "FINAL(f)")
+	(sequence "|" "CANCELLED(C)")))
+
+(setq org-startup-folded nil)
+
+(setq org-agenda-files (quote ("~/org")))
