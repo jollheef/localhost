@@ -4,6 +4,11 @@ let
   nonfree = import <nixos> { config.allowUnfree = true; };
   secrets = import ./secrets.nix;
 in {
+  systemd.services.display-manager.serviceConfig = {
+    StartLimitBurst = 16;
+    StartLimitIntervalSec = 4;
+  };
+
   services.xserver = {
     enable = true;
     layout = "us,ru"; # see also home-manager.nix
