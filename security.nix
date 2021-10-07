@@ -52,6 +52,7 @@ in {
 
   users.users.out-of-tree = {
     home = "/var/out-of-tree";
+    isSystemUser = true;
     createHome = true;
     extraGroups = [ "docker" "kvm" ];
   };

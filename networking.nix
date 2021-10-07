@@ -12,6 +12,7 @@ in {
   networking.usePredictableInterfaceNames = false;
 
   networking.wireless.enable = true;
+  networking.wireless.interfaces = [ "wlan0" ];
   imports = [ ./wireless-networks.nix ];
 
   networking.extraHosts = secrets.hosts;
