@@ -52,6 +52,7 @@ in {
     texlive.combined.scheme-full rubber pandoc
     jq socat ffmpeg-full exiftool apktool mdl wine zstd
     tesseract dislocker ffmpeg-normalize mkvtoolnix-cli
+    binutils conda zopfli libimobiledevice ifuse graphviz
 
     # development
     sbcl go
@@ -60,7 +61,6 @@ in {
     gnupg yubikey-manager yubikey-personalization
 
     # virtualization
-    nixops
     kvm
     virtmanager
     virtviewer
@@ -75,7 +75,9 @@ in {
       binwalk
     ]))
 
-    (emacsWithPackages(epkgs:
+    uefi-firmware-parser
+
+    (unstable.emacsWithPackages(epkgs:
       # MELPA (Milkypostman’s Emacs Lisp Package Archive)
       (with epkgs.melpaPackages; [
         # Programming languages modes
@@ -88,9 +90,10 @@ in {
         nix-mode markdown-mode dockerfile-mode yaml-mode ssh-config-mode
         toml-mode pcap-mode
         # Version control
-        magit git-gutter
+        magit git-gutter git-timemachine
         # Generic
-        smex w3m org-kanban org-brain
+        smex w3m org-kanban org-brain org-roam use-package
+        selectrum selectrum-prescient
         # Appearance
         zenburn-theme solarized-theme wc-mode
         # NixOS
@@ -121,18 +124,50 @@ in {
     xorg.xcursorthemes capitaine-cursors gnome3.cheese
 
     # x apps
-    escrotum evince gimp gnome3.gnome-maps
+    escrotum evince gimp gnome3.gnome-maps inkscape
     android-file-transfer libreoffice electrum gnome3.nautilus
-    signal-desktop signal-cli rdesktop
+    signal-desktop signal-cli rdesktop wire-desktop
 
     ghidra
 
-    (writeShellScriptBin "git-get" "${git}/bin/git clone https://$1 $GOPATH/src/$1")
+    (writeShellScriptBin "git-get" ''
+      REPO=$(echo $1 | sed 's;http.*://;;')
+      ${git}/bin/git clone https://$REPO $GOPATH/src/$REPO
+    '')
 
     (writeShellScriptBin "chromium" ''
       ${chromium}/bin/chromium --force-dark-mode \
                                       --start-maximized \
                                       $@
     '')
+
+    (stdenv.mkDerivation {
+      pname = "imjtool";
+      version = "1.0.0";
+
+      dontConfigure = true;
+      dontBuild = true;
+      dontStrip = true;
+
+      src = fetchurl {
+        url = "http://newandroidbook.com/tools/imjtool.tgz";
+        sha256 = "sha256:027zlxsssfffhrlgfamcjn4whcarm8gh687xswz3mbmyra0rgspd";
+      };
+
+      setSourceRoot = "sourceRoot=`pwd`";
+
+      nativeBuildInputs = [ autoPatchelfHook ];
+      buildInputs = [
+        zlib lzma bzip2
+      ];
+      propagatedBuildInputs = [
+        lz4
+      ];
+
+      installPhase = ''
+        mkdir -p $out/bin
+        cp imjtool.ELF64 $out/bin/imjtool
+      '';
+    })
   ];
 }
