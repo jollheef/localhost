@@ -140,6 +140,7 @@ in {
       "naepdomgkenhinolocfifgehidddafch" # Browserpass
       "fihnjjcciajhdojfnbdddfaoknhalnja" # I don't care about cookies
       "kbfnbcaeplbcioakkpcpgfkobkghlhen" # Grammarly
+      "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
     ];
     extraOpts = {
       DefaultBrowserSettingEnabled = true;
