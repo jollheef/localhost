@@ -1,7 +1,14 @@
 { config, pkgs, ... }:
 
 let
+  unstable = import <unstable> {};
   nonfree = import <nixos> { config.allowUnfree = true; };
+  ghidra = pkgs.ghidra-bin.overrideAttrs (attrs: {
+    installPhase = ''
+        ${attrs.installPhase}
+        sed -i 's/uiScale=1/uiScale=2/' $out/lib/ghidra/support/launch.properties
+      '';
+  });
 in {
   programs.zsh.enable = true;
   programs.browserpass.enable = true;
@@ -114,6 +121,8 @@ in {
     escrotum evince gimp gnome3.gnome-maps
     android-file-transfer libreoffice electrum gnome3.nautilus
     signal-desktop signal-cli rdesktop
+
+    ghidra
 
     (writeShellScriptBin "git-get" "${git}/bin/git clone https://$1 $GOPATH/src/$1")
 
