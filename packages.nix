@@ -29,7 +29,7 @@ in {
 
   virtualisation.libvirtd = {
     enable = true;
-    qemuVerbatimConfig = ''
+    qemu.verbatimConfig = ''
       namespaces = []
       user = "user"
       group = "users"
