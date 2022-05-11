@@ -52,10 +52,12 @@ in {
 
   users.users.out-of-tree = {
     home = "/var/out-of-tree";
+    group = "out-of-tree";
     isSystemUser = true;
     createHome = true;
     extraGroups = [ "docker" "kvm" ];
   };
+  users.groups.out-of-tree = {};
 
   environment.systemPackages = with pkgs; [
     (writeShellScriptBin "fhs" "sudo ${fhs}/bin/fhs")
