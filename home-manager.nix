@@ -99,6 +99,20 @@ in {
 
         initExtra = ''
           which apt >/dev/null 2>&1 && plugins=("\$\{(@)plugins:#tmux-my\}")
+
+          # git does not support shell aliases as subcommands, but also
+          # there is no way to change the current working directory from
+          # the subprocess. Emulating the required behavior with the wrapper
+          function git {
+            if [[ "$1" = "get" ]]; then
+              REPO=$(echo $2 | sed 's;http.*://;;')
+              REPO=$(echo $REPO | sed 's;\.git$;;')
+              ${pkgs.git}/bin/git clone https://$REPO $GOPATH/src/$REPO
+              cd $GOPATH/src/$REPO
+            else
+              ${pkgs.git}/bin/git $@
+            fi
+          }
         '';
       };
 

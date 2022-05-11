@@ -130,11 +130,6 @@ in {
 
     ghidra
 
-    (writeShellScriptBin "git-get" ''
-      REPO=$(echo $1 | sed 's;http.*://;;')
-      ${git}/bin/git clone https://$REPO $GOPATH/src/$REPO
-    '')
-
     (writeShellScriptBin "chromium" ''
       ${chromium}/bin/chromium --force-dark-mode \
                                       --start-maximized \
