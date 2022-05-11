@@ -28,6 +28,11 @@ in {
   ];
   boot.kernelModules = [ "v4l2loopback" ];
   boot.blacklistedKernelModules = [ "nouveau" ];
+
+  services.logind.extraConfig = ''
+    LidSwitchIgnoreInhibited=no
+  '';
+
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
 
   i18n.defaultLocale = "en_US.UTF-8";
