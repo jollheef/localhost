@@ -2,7 +2,10 @@
 
 let
   unstable = import <unstable> {};
-  nonfree = import <nixos> { config.allowUnfree = true; };
+  nonfree = import <nixos> {
+    config.allowUnfree = true;
+    chromium.enableWideVine = true;
+  };
   ghidra = pkgs.ghidra-bin.overrideAttrs (attrs: {
     installPhase = ''
         ${attrs.installPhase}
@@ -134,6 +137,11 @@ in {
       ${chromium}/bin/chromium --force-dark-mode \
                                --start-maximized \
                                $@
+    '')
+    (writeShellScriptBin "chromium-nonfree" ''
+      ${nonfree.chromium}/bin/chromium --force-dark-mode \
+                                       --start-maximized \
+                                       $@
     '')
 
     (stdenv.mkDerivation {
