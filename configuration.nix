@@ -44,6 +44,8 @@ in {
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
 
+  services.fwupd.enable = true;
+
   swapDevices = [
     { device = "/var/swapfile";
       size = 32768; # MiB
