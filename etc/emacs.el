@@ -55,7 +55,7 @@
 (setq c-default-style "linux")
 
 ;; Highlight line
-(global-hl-line-mode 1)
+;(global-hl-line-mode 1)
 
 ;; y-or-n instead of yes-or-no in kill buffer
 (defalias 'yes-or-no-p 'y-or-n-p)
