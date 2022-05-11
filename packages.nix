@@ -132,8 +132,8 @@ in {
 
     (writeShellScriptBin "chromium" ''
       ${chromium}/bin/chromium --force-dark-mode \
-                                      --start-maximized \
-                                      $@
+                               --start-maximized \
+                               $@
     '')
 
     (stdenv.mkDerivation {
