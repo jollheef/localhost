@@ -69,9 +69,4 @@ in {
     (writeShellScriptBin "out-of-tree"
       "sudo -H -u out-of-tree ${pkgs.out-of-tree}/bin/out-of-tree $@")
   ];
-
-  security.wrappers = {
-    pmount.source = "${pkgs.pmount}/bin/pmount";
-    pumount.source = "${pkgs.pmount}/bin/pumount";
-  };
 }
