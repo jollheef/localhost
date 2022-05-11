@@ -46,6 +46,11 @@ in {
           signByDefault = true;
           key = "0x1525585D1B43C62A";
         };
+        extraConfig = {
+          init = {
+            defaultBranch = "default";
+          };
+        };
       };
 
       tmux = {
