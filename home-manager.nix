@@ -164,6 +164,8 @@ in {
 
         ln -fs ${pkgs.gtk3}/share/gsettings-schemas/gtk+3-*/glib-2.0 .local/share/
 
+        ln -fs .config/tmux/tmux.conf .tmux.conf
+
         kitty --class=viewShiftW3 &
         emacs &
         chromium &
