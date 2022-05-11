@@ -58,6 +58,7 @@ in {
   services.tor.client.enable = true;
 
   environment.systemPackages = with pkgs; [
+    gnumake
     nonfree.codeql
 
     # utils
