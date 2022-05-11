@@ -75,6 +75,8 @@ in {
     tesseract dislocker ffmpeg-normalize mkvtoolnix-cli
     binutils conda zopfli libimobiledevice ifuse graphviz
 
+    unstable.exoscale-cli unstable.metal-cli
+
     # development
     sbcl go
 
