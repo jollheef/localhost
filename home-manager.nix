@@ -2,7 +2,7 @@
 
 let
   home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-20.09.tar.gz";
+    url = "https://github.com/nix-community/home-manager/archive/release-21.11.tar.gz";
   };
 in {
   imports = [ "${home-manager}/nixos" ];
