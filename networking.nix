@@ -100,6 +100,18 @@ in {
         wantedBy = [ "suspend.target" "hibernate.target" "hybrid-sleep.target" ];
         script = "${pkgs.systemd}/bin/systemctl try-restart openvpn-vpn.service";
       };
+      "openvpn-keep-alive" = {
+        description = "Make sure OpenVPN connection is alive";
+        after = [ "openvpn-vpn.service" ];
+        wantedBy = [ "openvpn-vpn.service" ];
+        script = ''
+          while [ 1 ]; do
+            sleep 10s
+            timeout 10s ${pkgs.iputils}/bin/ping -c1 1.1.1.1 >/dev/null 2>&1 || \
+              ${pkgs.systemd}/bin/systemctl try-restart openvpn-vpn.service
+          done
+        '';
+      };
     };
   };
 }
