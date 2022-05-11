@@ -59,7 +59,6 @@ in {
 
   environment.systemPackages = with pkgs; [
     gnumake
-    nonfree.codeql
 
     # utils
     wget tmux zsh vim htop acpi bc p7zip mpv
