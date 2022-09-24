@@ -1,5 +1,6 @@
-# nix-channel --add https://nixos.org/channels/nixos-20.09 nixos
-# nix-channel --add https://nixos.org/channels/nixos-20.09-small nixos-small
+# nix-channel --add https://nixos.org/channels/nixos-22.05 nixos
+# nix-channel --add https://nixos.org/channels/nixos-22.05-small nixos-small
+# nix-channel --add https://nixos.org/channels/nixos-unstable unstable
 # nix-channel --update
 #
 { config, pkgs, ... }:
