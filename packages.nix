@@ -60,15 +60,15 @@ in {
     unstable.exoscale-cli unstable.metal-cli
 
     # development
-    sbcl go
+    sbcl go global
 
     # gpg-related
     gnupg yubikey-manager yubikey-personalization
 
     # virtualization
-    kvm
+    qemu_kvm
     virtmanager
-    virtviewer
+    virt-viewer
     spice
     spice-gtk
 
@@ -87,8 +87,8 @@ in {
       (with epkgs.melpaPackages; [
         # Programming languages modes
         haskell-mode rust-mode scala-mode csharp-mode d-mode
-        solidity-mode php-mode go-mode ponylang-mode zig-mode
-        goimports
+        solidity-mode go-mode ponylang-mode zig-mode
+        gotools
         # Development
         helm-gtags slime xcscope go-autocomplete
         # Configuration languages modes
@@ -122,10 +122,10 @@ in {
     gnome3.gnome-font-viewer
 
     # base x
-    rofi xlibs.xmodmap xsecurelock kitty
+    rofi xorg.xmodmap xsecurelock kitty
     libnotify gtk_engines x2x evtest
     pulsemixer arc-theme xclip
-    gnome3.dconf gnome3.dconf-editor gsettings-desktop-schemas gsettings-qt
+    dconf gnome3.dconf-editor gsettings-desktop-schemas gsettings-qt
     xorg.xcursorthemes capitaine-cursors gnome3.cheese
 
     # x apps
@@ -133,7 +133,7 @@ in {
     android-file-transfer libreoffice electrum gnome3.nautilus
     signal-desktop signal-cli rdesktop wire-desktop
 
-    ghidra
+    ghidra nonfree.davinci-resolve
 
     (writeShellScriptBin "chromium" ''
       ${chromium}/bin/chromium --force-dark-mode \

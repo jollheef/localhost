@@ -17,8 +17,10 @@ in {
       enable = true;
       enableContribAndExtras = true;
     };
-    dpi = 282;   # 15.6 inch, 3840x2160
+    dpi = 282;   # 15.6 inch, 3840x2160, comment out in case of nvidia
   };
+
+  #services.xserver.videoDrivers = [ "nvidia" ];
 
   services.xserver.xautolock = {
     enable = true;
@@ -44,8 +46,8 @@ in {
   programs.dconf.enable = true;
   programs.light.enable = true;
 
-  hardware.opengl.extraPackages = [ pkgs.vaapiIntel ];
-
+  hardware.opengl.enable = true;
+  hardware.opengl.extraPackages = [ pkgs.vaapiVdpau pkgs.vaapiIntel ];
   sound.enable = true;
 
   # > bluetooth audio
@@ -63,7 +65,6 @@ in {
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull;
-    extraModules = [ pkgs.pulseaudio-modules-bt ];
   };
   # < bluetooth audio
 
@@ -78,7 +79,7 @@ in {
     fonts = with pkgs; [
       ubuntu_font_family
       noto-fonts-emoji
-      cantarell_fonts
+      cantarell-fonts
       cm_unicode
       google-fonts
       go-font
@@ -141,6 +142,7 @@ in {
       "fihnjjcciajhdojfnbdddfaoknhalnja" # I don't care about cookies
       "kbfnbcaeplbcioakkpcpgfkobkghlhen" # Grammarly
       "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
+      "gkmndgjgpolmikgnipipfekglbbgjcel" # AutoHideDownloadsBar
     ];
     extraOpts = {
       DefaultBrowserSettingEnabled = true;
@@ -162,17 +164,17 @@ in {
       SyncDisabled = true;
 
       SigninAllowed = false;
-      AudioCaptureAllowed = false;
-      VideoCaptureAllowed = false;
+      # AudioCaptureAllowed = false;
+      # VideoCaptureAllowed = false;
       SSLErrorOverrideAllowed = false;
       AutoplayAllowed = false;
 
       # 0 = Disable browser sign-in
       BrowserSignin = 0;
 
-      DefaultSearchProviderEnabled = true;
-      DefaultSearchProviderSearchURL = "https://duckduckgo.com/"
-        + "?kae=d&k1=-1&kc=1&kav=1&kd=-1&kh=1&q={searchTerms}";
+      #DefaultSearchProviderEnabled = true;
+      #DefaultSearchProviderSearchURL = "https://duckduckgo.com/"
+      #+ "?kae=d&k1=-1&kc=1&kav=1&kd=-1&kh=1&q={searchTerms}";
 
       # Do not allow any site to show desktop notifications
       DefaultNotificationsSetting = 2;

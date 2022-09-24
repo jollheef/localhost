@@ -21,6 +21,9 @@ in {
       ./auto-update.nix
     ];
 
+  boot.kernelPackages = nixos-small.linuxPackages_latest;
+  boot.kernelParams = [ "nouveau.modeset=0" ]; # comment out in case of nvidia
+
   time.timeZone = "UTC";
 
   services.logind.extraConfig = ''
