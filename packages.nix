@@ -25,6 +25,24 @@ in {
   services.usbmuxd.enable = true;
   services.usbmuxd.user = "user";
 
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+    settings = {
+      mysqld = {
+        innodb_read_io_threads = 256;
+        innodb_write_io_threads = 256;
+        innodb_io_capacity = 100500;
+        innodb_buffer_pool_size = "28G";
+        innodb_log_buffer_size = "256M";
+        innodb_log_file_size = "1G";
+        innodb_flush_log_at_trx_commit = 0;
+        innodb_doublewrite = 0;
+        innodb_open_files = 100500;
+      };
+    };
+  };
+
   virtualisation.docker.enable = true;
 
   virtualisation.libvirtd = {
