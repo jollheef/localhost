@@ -73,7 +73,8 @@ in {
     texlive.combined.scheme-full rubber pandoc
     jq socat ffmpeg-full exiftool apktool mdl wine zstd
     tesseract dislocker ffmpeg-normalize mkvtoolnix-cli
-    binutils conda zopfli libimobiledevice ifuse graphviz
+    binutils conda zopfli graphviz
+    unstable.libimobiledevice unstable.ifuse
 
     unstable.exoscale-cli unstable.metal-cli
 
