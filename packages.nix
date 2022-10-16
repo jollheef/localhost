@@ -101,13 +101,13 @@ in {
 
     uefi-firmware-parser
 
-    (unstable.emacsWithPackages(epkgs:
+    (unstable.emacs.pkgs.withPackages(epkgs:
       # MELPA (Milkypostman’s Emacs Lisp Package Archive)
       (with epkgs.melpaPackages; [
         # Programming languages modes
         haskell-mode rust-mode scala-mode csharp-mode d-mode
         solidity-mode go-mode ponylang-mode zig-mode
-        gotools
+        gotools lua-mode
         # Development
         helm-gtags slime xcscope go-autocomplete
         # Configuration languages modes
