@@ -12,30 +12,6 @@ let
         sed -i 's/uiScale=1/uiScale=2/' $out/lib/ghidra/support/launch.properties
       '';
   });
-  mygui-new = unstable.mygui.overrideAttrs (attrs: {
-    version = "3.4.1";
-    src = unstable.fetchFromGitHub {
-      owner = "MyGUI";
-      repo = "mygui";
-      rev = "MyGUI3.4.1";
-      sha256 = "sha256-5u9whibYKPj8tCuhdLOhL4nDisbFAB0NxxdjU/8izb8=";
-    };
-  });
-  openmw-master = unstable.openmw.overrideAttrs (attrs: {
-    version = "master";
-    src = unstable.fetchFromGitHub {
-      owner = "OpenMW";
-      repo = "openmw";
-      rev = "df8bd57a9e89d893559d771b840ea8eb757e079d";
-      sha256 = "sha256-vhToZNlaC3ulH4/cdh2ajyFY3XxLnZIu4NTNZoBu7Tk=";
-    };
-    patches = [ ];
-    buildInputs = [
-      unstable.libyamlcpp
-      unstable.luajit
-      mygui-new
-    ] ++ attrs.buildInputs;
-  });
 in {
   programs.zsh.enable = true;
   programs.browserpass.enable = true;
@@ -104,8 +80,6 @@ in {
 
     # development
     sbcl go global
-
-    openmw-master
 
     # gpg-related
     gnupg yubikey-manager yubikey-personalization
