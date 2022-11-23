@@ -244,3 +244,6 @@
 (setq org-startup-folded nil)
 
 (setq org-agenda-files (quote ("~/org")))
+
+(require 'yasnippet)
+(yas-global-mode 1)

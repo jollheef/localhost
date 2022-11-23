@@ -117,7 +117,7 @@ in {
         magit git-gutter git-timemachine
         # Generic
         smex w3m org-kanban org-brain org-roam use-package
-        selectrum selectrum-prescient
+        selectrum selectrum-prescient yasnippet
         # Appearance
         zenburn-theme solarized-theme wc-mode
         # NixOS
