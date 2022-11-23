@@ -135,12 +135,10 @@ in {
     enable = true;
     extensions = [
       "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
-      "gcbommkclmclpchllfjekcdonpmejbdp" # HTTPS Everywhere
       "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
       "aapbdbdomjkkjkaonfhkkikfgjllcleb" # Google Translate
       "naepdomgkenhinolocfifgehidddafch" # Browserpass
       "fihnjjcciajhdojfnbdddfaoknhalnja" # I don't care about cookies
-      "kbfnbcaeplbcioakkpcpgfkobkghlhen" # Grammarly
       "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
       "gkmndgjgpolmikgnipipfekglbbgjcel" # AutoHideDownloadsBar
     ];
