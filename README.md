@@ -35,6 +35,8 @@ Notes:
     cp secrets.nix.example secrets.nix
     nano secrets.nix
 
+    cp local.nix.example local.nix
+
     nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
     nix-channel --add https://nixos.org/channels/nixos-22.11-small nixos-small
     nix-channel --add https://nixos.org/channels/nixos-unstable unstable
