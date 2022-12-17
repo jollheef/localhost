@@ -144,9 +144,9 @@ in {
                                $@
     '')
     (writeShellScriptBin "chromium-nonfree" ''
-      ${nonfree.chromium}/bin/chromium --force-dark-mode \
-                                       --start-maximized \
-                                       $@
+      ${nonfree.google-chrome}/bin/google-chrome-stable --force-dark-mode \
+                                                        --start-maximized \
+                                                        $@
     '')
   ];
 }
