@@ -83,6 +83,8 @@ in {
 
     uefi-firmware-parser
 
+    docker-compose
+
     (unstable.emacs.pkgs.withPackages(epkgs:
       # MELPA (Milkypostman’s Emacs Lisp Package Archive)
       (with epkgs.melpaPackages; [
