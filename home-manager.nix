@@ -2,7 +2,7 @@
 
 let
   home-manager = builtins.fetchTarball {
-    url = "https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz";
+    url = "https://github.com/nix-community/home-manager/archive/release-22.11.tar.gz";
   };
 in {
   imports = [ "${home-manager}/nixos" ];
@@ -10,6 +10,7 @@ in {
   home-manager.useUserPackages = true;
 
   home-manager.users.root = {
+    home.stateVersion = "22.11";
     programs = {
       zsh = {
         enable = true;
@@ -24,6 +25,7 @@ in {
   };
 
   home-manager.users.user = {
+    home.stateVersion = "22.11";
     services.dunst = {
       enable = true;
       settings = {

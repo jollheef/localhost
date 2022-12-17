@@ -1,5 +1,5 @@
-# nix-channel --add https://nixos.org/channels/nixos-22.05 nixos
-# nix-channel --add https://nixos.org/channels/nixos-22.05-small nixos-small
+# nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
+# nix-channel --add https://nixos.org/channels/nixos-22.11-small nixos-small
 # nix-channel --add https://nixos.org/channels/nixos-unstable unstable
 # nix-channel --update
 #
@@ -22,7 +22,7 @@ in {
       ./local.nix
     ];
 
-  boot.kernelPackages = nixos-small.linuxPackages_latest;
+  boot.kernelPackages = nixos-small.linuxPackages_6_0;
   boot.kernelParams = [ "nouveau.modeset=0" ]; # comment out in case of nvidia
 
   time.timeZone = "UTC";
@@ -66,7 +66,7 @@ in {
   system.stateVersion = "20.09";
 
   nix = {
-    trustedUsers = [ "root" "user" ];
+    settings.trusted-users = [ "root" "user" ];
     optimise.automatic = true;
     gc = {
       automatic = true;

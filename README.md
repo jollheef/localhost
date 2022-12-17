@@ -3,7 +3,7 @@
 [Download NixOS installation ISO](https://nixos.org/nixos/download.html)
 
 Notes:
-1. I assume that latest **stable** (e.g. 22.05) ISO will be used for installation.
+1. I assume that latest **stable** (e.g. 22.11) ISO will be used for installation.
 2. Default network configuration is VPN-only, so if you don't have plans to use it you need to change iptables rules (remove `iptables -P OUTPUT DROP` from `networking.nix`) and remove `services.openvpn.servers.vpn` from `networking.nix`.
 3. GUI settings is optimized for 3840x2160 on 15".
 
@@ -35,8 +35,8 @@ Notes:
     cp secrets.nix.example secrets.nix
     nano secrets.nix
 
-    nix-channel --add https://nixos.org/channels/nixos-22.05 nixos
-    nix-channel --add https://nixos.org/channels/nixos-22.05-small nixos-small
+    nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
+    nix-channel --add https://nixos.org/channels/nixos-22.11-small nixos-small
     nix-channel --add https://nixos.org/channels/nixos-unstable unstable
     nix-channel --update
 
@@ -49,7 +49,7 @@ Notes:
 
 Initial password for `user` is `user`.
 
-    sudo nix-channel --add https://nixos.org/channels/nixos-22.05 nixos
-    sudo nix-channel --add https://nixos.org/channels/nixos-22.05-small nixos-small
+    sudo nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
+    sudo nix-channel --add https://nixos.org/channels/nixos-22.11-small nixos-small
     sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
     sudo nix-channel --update
