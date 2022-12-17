@@ -53,7 +53,7 @@ in {
     exfat traceroute graphicsmagick-imagemagick-compat
     pdftk vnstat dunst ghostscript graphicsmagick
     texlive.combined.scheme-full rubber pandoc
-    jq socat ffmpeg-full exiftool apktool mdl wine zstd
+    jq socat ffmpeg-full exiftool mdl wine zstd
     tesseract dislocker ffmpeg-normalize mkvtoolnix-cli
     binutils conda zopfli graphviz
     unstable.libimobiledevice unstable.ifuse
