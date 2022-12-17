@@ -13,10 +13,6 @@ in {
     enable = true;
     layout = "us,ru"; # see also home-manager.nix
     xkbOptions = "ctrl:nocaps,grp:rctrl_toggle"; # see also home-manager.nix
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-    };
     dpi = 282;   # 15.6 inch, 3840x2160, comment out in case of nvidia
   };
 

@@ -128,7 +128,6 @@ in {
 
     home.file = {
       ".emacs.d/init.el".source = ./etc/emacs.el;
-      ".xmonad/xmonad.hs".source = ./etc/xmonad.hs;
 
       ".mutt/mailcap".source = ./etc/mutt/mailcap;
       ".mutt/muttrc".source = ./etc/mutt/muttrc;
@@ -149,7 +148,13 @@ in {
 
     xsession = {
       enable = true;
-      windowManager.command = "exec xmonad";
+      windowManager.xmonad = {
+        enable = true;
+        config = pkgs.writeText "xmonad.hs" (builtins.readFile ./etc/xmonad.hs);
+        extraPackages = haskellPackages: [
+          haskellPackages.xmonad-contrib
+        ];
+      };
       initExtra = ''
         touchpad=$(xinput | grep -o 'Synaptics.*id=[0-9]*' | cut -d '=' -f 2)
         trackpoint=$(xinput | grep -o 'TrackPoint.*id=[0-9]*' | cut -d '=' -f 2)
