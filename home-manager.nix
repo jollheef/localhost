@@ -76,8 +76,7 @@ in {
         oh-my-zsh = {
           enable = true;
           theme = "gentoo";
-          plugins = [ "git" "cp" "tmux-my" ];
-          custom = "$HOME/.oh-my-zsh-custom";
+          plugins = [ "git" "cp" "tmux" ];
         };
 
         sessionVariables = {
@@ -86,8 +85,9 @@ in {
           GOPATH = "\${HOME}";
           PATH = "\${PATH}:\${HOME}/bin:\${HOME}/.local/bin";
 
+          # TODO: Autoconnect only to non-attached session
           ZSH_TMUX_AUTOSTART = "true";
-          ZSH_TMUX_AUTOCONNECT = "true";
+          ZSH_TMUX_AUTOCONNECT = "false";
 
           NIX_AUTO_RUN = "true";
         };
@@ -132,10 +132,6 @@ in {
       ".mutt/mailcap".source = ./etc/mutt/mailcap;
       ".mutt/muttrc".source = ./etc/mutt/muttrc;
       ".mutt/signature".source = ./etc/mutt/signature;
-
-      ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.extra.conf".source = ./etc/tmux-my/tmux-my.extra.conf;
-      ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.only.conf".source = ./etc/tmux-my/tmux-my.only.conf;
-      ".oh-my-zsh-custom/plugins/tmux-my/tmux-my.plugin.zsh".source = ./etc/tmux-my/tmux-my.plugin.zsh;
 
       ".config/user-dirs.dirs".source = ./etc/user-dirs.dir;
       ".config/kitty/kitty.conf".source = ./etc/kitty.conf;
