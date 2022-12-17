@@ -19,6 +19,7 @@ in {
       ./home-manager.nix
       ./thinkpad.nix
       ./auto-update.nix
+      ./local.nix
     ];
 
   boot.kernelPackages = nixos-small.linuxPackages_latest;
