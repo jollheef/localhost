@@ -17,7 +17,6 @@ main =  xmonad $ def
 
 startup = do
   setWMName "LG3D"
-  spawn "xrandr --auto && xrandr --output DP-1.3 --above DP-2"
   spawn "xmodmap -e 'add mod3 = Muhenkan'"
 
 windowManage = composeAll
