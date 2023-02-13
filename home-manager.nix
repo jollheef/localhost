@@ -166,6 +166,8 @@ in {
 
         ln -fs /tmp/chromium .config/
         ln -fs /tmp/chromium .cache/
+        ln -fs /tmp/chromium .config/google-chrome
+        ln -fs /tmp/chromium .cache/google-chrome
 
         ln -fs ${pkgs.gtk3}/share/gsettings-schemas/gtk+3-*/glib-2.0 .local/share/
 
