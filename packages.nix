@@ -25,15 +25,20 @@ in {
   services.usbmuxd.enable = true;
   services.usbmuxd.user = "user";
 
-  virtualisation.docker.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+    };
 
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu.verbatimConfig = ''
-      namespaces = []
-      user = "user"
-      group = "users"
-    '';
+    libvirtd = {
+      enable = true;
+      qemu.verbatimConfig = ''
+        namespaces = []
+        user = "user"
+        group = "users"
+      '';
+    };
   };
 
   services.tor.enable = true;
@@ -82,8 +87,6 @@ in {
     ]))
 
     uefi-firmware-parser
-
-    docker-compose
 
     (unstable.emacs.pkgs.withPackages(epkgs:
       # MELPA (Milkypostman’s Emacs Lisp Package Archive)
