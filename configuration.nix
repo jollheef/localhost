@@ -15,7 +15,6 @@ in {
       ./desktop.nix
       ./security.nix
       ./hacks.nix
-      ./docker.nix
       ./home-manager.nix
       ./thinkpad.nix
       ./auto-update.nix
