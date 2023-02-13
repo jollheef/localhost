@@ -101,9 +101,9 @@ in {
         magit git-gutter git-timemachine
         # Generic
         smex w3m org-kanban org-brain org-roam use-package
-        selectrum selectrum-prescient yasnippet
+        selectrum selectrum-prescient yasnippet org-clock-today
         # Appearance
-        zenburn-theme solarized-theme wc-mode
+        zenburn-theme solarized-theme wc-mode perspective
         # NixOS
         company-nixos-options helm-nixos-options
       ])

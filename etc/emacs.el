@@ -247,3 +247,7 @@
 
 (require 'yasnippet)
 (yas-global-mode 1)
+
+(global-set-key (kbd "C-x C-b") 'persp-list-buffers)
+(customize-set-variable 'persp-mode-prefix-key (kbd "C-<henkan>"))
+(persp-mode)
