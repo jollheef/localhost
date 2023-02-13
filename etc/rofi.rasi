@@ -1,0 +1,12 @@
+configuration {
+        font: "Ubuntu Mono 30";
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+@theme "android_notification"

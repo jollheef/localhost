@@ -135,6 +135,8 @@ in {
 
       ".config/user-dirs.dirs".source = ./etc/user-dirs.dir;
       ".config/kitty/kitty.conf".source = ./etc/kitty.conf;
+
+      ".config/rofi/config.rasi".source = ./etc/rofi.rasi;
     };
 
     home.keyboard = {
