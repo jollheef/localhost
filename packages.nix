@@ -128,7 +128,7 @@ in {
     gnome3.gnome-font-viewer
 
     # base x
-    rofi xorg.xmodmap xsecurelock kitty
+    rofi rofi-bluetooth xorg.xmodmap xsecurelock kitty
     libnotify gtk_engines x2x evtest
     pulsemixer arc-theme xclip
     dconf gnome3.dconf-editor gsettings-desktop-schemas gsettings-qt
