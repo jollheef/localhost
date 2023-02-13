@@ -17,6 +17,25 @@ in {
     windowManager.xmonad.enable = true;
   };
 
+  systemd.user.services.xmodmap = {
+    description = "xmodmap hotplug";
+    wantedBy = [ "graphical-session.target" ];
+    partOf = [ "graphical-session.target" ];
+    unitConfig = {
+      StartLimitIntervalSec = 0;
+    };
+    serviceConfig = {
+      PassEnvironment = "DISPLAY";
+      Restart = "always";
+      RestartSec = 0;
+    };
+    script = ''
+      ${pkgs.inotify-tools}/bin/inotifywait -e create /dev/input
+      sleep 1s
+      ${pkgs.xorg.xmodmap}/bin/xmodmap -e 'add mod3 = Muhenkan'
+    '';
+  };
+
   #services.xserver.videoDrivers = [ "nvidia" ];
 
   services.xserver.xautolock = {
