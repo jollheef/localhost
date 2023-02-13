@@ -41,22 +41,10 @@
     extraConfig = ''
       %wheel ALL=(ALL:ALL) NOPASSWD: ${pkgs.light}/bin/light
       %wheel ALL=(captive) NOPASSWD: ${pkgs.firefox}/bin/firefox
-      %wheel ALL=(out-of-tree) NOPASSWD: ${pkgs.out-of-tree}/bin/out-of-tree
     '';
   };
 
-  users.users.out-of-tree = {
-    home = "/var/out-of-tree";
-    group = "out-of-tree";
-    isSystemUser = true;
-    createHome = true;
-    extraGroups = [ "docker" "kvm" ];
-  };
-  users.groups.out-of-tree = {};
-
   environment.systemPackages = with pkgs; [
     (writeShellScriptBin "captive" "sudo -H -u captive ${pkgs.firefox}/bin/firefox")
-    (writeShellScriptBin "out-of-tree"
-      "sudo -H -u out-of-tree ${pkgs.out-of-tree}/bin/out-of-tree $@")
   ];
 }
