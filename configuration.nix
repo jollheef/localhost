@@ -1,13 +1,10 @@
 # nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
-# nix-channel --add https://nixos.org/channels/nixos-22.11-small nixos-small
 # nix-channel --add https://nixos.org/channels/nixos-unstable unstable
 # nix-channel --update
 #
 { config, pkgs, ... }:
 
-let
-  nixos-small = import <nixos-small> {};
-in {
+{
   imports =
     [ ./hardware-configuration.nix
       ./packages.nix
@@ -21,7 +18,7 @@ in {
       ./local.nix
     ];
 
-  boot.kernelPackages = nixos-small.linuxPackages_6_0;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [ "nouveau.modeset=0" ]; # comment out in case of nvidia
 
   time.timeZone = "UTC";

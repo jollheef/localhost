@@ -38,7 +38,6 @@ Notes:
     cp local.nix.example local.nix
 
     nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
-    nix-channel --add https://nixos.org/channels/nixos-22.11-small nixos-small
     nix-channel --add https://nixos.org/channels/nixos-unstable unstable
     nix-channel --update
 
@@ -52,6 +51,5 @@ Notes:
 Initial password for `user` is `user`.
 
     sudo nix-channel --add https://nixos.org/channels/nixos-22.11 nixos
-    sudo nix-channel --add https://nixos.org/channels/nixos-22.11-small nixos-small
     sudo nix-channel --add https://nixos.org/channels/nixos-unstable unstable
     sudo nix-channel --update
