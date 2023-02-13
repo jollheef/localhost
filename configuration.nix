@@ -59,7 +59,7 @@
   boot.tmpOnTmpfs = true;
   boot.supportedFilesystems = [ "ntfs" ];
 
-  system.stateVersion = "20.09";
+  system.stateVersion = "22.11";
 
   nix = {
     settings.trusted-users = [ "root" "user" ];
